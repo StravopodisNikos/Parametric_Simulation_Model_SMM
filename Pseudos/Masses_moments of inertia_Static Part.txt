@@ -1,0 +1,32 @@
+Mass properties of pjoint1_static
+     Configuration: Default
+     Coordinate system: Coordinate System1
+
+Mass = 1.62215938 kilograms
+
+Volume = 0.00059324 cubic meters
+
+Surface area = 0.17439802 square meters
+
+Center of mass: ( meters )
+	X = -0.02505667
+	Y = -0.00018177
+	Z = 0.08810553
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = ( 0.31962608, -0.00209789,  0.94754143)   	Px = 0.00179245
+	 Iy = (-0.94753911,  0.00242426,  0.31963066)   	Py = 0.00437645
+	 Iz = (-0.00296764, -0.99999486, -0.00121298)   	Pz = 0.00498668
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system.
+	Lxx = 0.00411247	Lxy = -0.00000354	Lxz = 0.00078259
+	Lyx = -0.00000354	Lyy = 0.00498666	Lyz = -0.00000588
+	Lzx = 0.00078259	Lzy = -0.00000588	Lzz = 0.00205644
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system.
+	Ixx = 0.01670468	Ixy = 0.00000384	Ixz = -0.00279854
+	Iyx = 0.00000384	Iyy = 0.01859726	Iyz = -0.00003186
+	Izx = -0.00279854	Izy = -0.00003186	Izz = 0.00307495

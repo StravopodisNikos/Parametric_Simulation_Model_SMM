@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="pseudo1a_name" value="pseudo1a" />
+  <xacro:property name="pseudo1b_name" value="pseudo1b" />
+
+
+</robot>
+
+
