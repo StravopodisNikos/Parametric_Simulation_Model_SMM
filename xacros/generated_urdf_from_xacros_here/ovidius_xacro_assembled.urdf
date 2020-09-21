@@ -97,5 +97,47 @@
       </material>
     </visual>
   </link>
+  <joint name="pseudo2a__pseudo2b" type="fixed">
+    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <parent link="pseudo2a"/>
+    <child link="pseudo2b"/>
+  </joint>
+  <link name="pseudo2b">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.4450127"/>
+      <inertia ixx="1.345843e-07" ixy="1.399547e-14" ixz="-2.461662e-15" iyy="1.577317e-7" iyz="2.024057e-13" izz="1.101806e-7"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.061 -0.167 -0.177"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Pseudos/pjoint1_moveable.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lime">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="pseudo2b__active_module1" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.1 0"/>
+    <parent link="pseudo2b"/>
+    <child link="active_module1"/>
+  </joint>
+  <link name="active_module1">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.892"/>
+      <inertia ixx="0.001" ixy="-1.292e-11" ixz="3.624e-12" iyy="4.195e-04" iyz="-9.613e-06" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5708 0 0" xyz="0 0.071 -0.1425"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_fixed.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lightgrey">
+        <color rgba="0.95 0.95 0.95 0.5"/>
+      </material>
+    </visual>
+  </link>
 </robot>
 

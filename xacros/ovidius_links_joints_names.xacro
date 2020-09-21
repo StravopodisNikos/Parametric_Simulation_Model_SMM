@@ -5,6 +5,9 @@
 <xacro:property name="pseudo_mass_static" value="2.2036439"/>
 <xacro:property name="pseudo_mass_moving" value="0.4450127"/>
 
+<xacro:property name="active_mass_static" value="0.892"/>
+<xacro:property name="active_mass_moving" value="0.102"/>
+
 <!-- Pseudo static block-->
 <xacro:macro name="pseudo_static_link_mesh" params="name origin_xyz origin_rpy">
     <link name="${name}">
@@ -61,6 +64,55 @@
     <parent link="${pseudo_parent}"/>
     <child link="${pseudo_child}"/>
 </joint>
+</xacro:macro>
+
+<!-- Fixed assembly parameters-->
+ <xacro:macro name="assembly_active_module2pseudo" params="active_assembly_name  active_assembly_origin_rpy active_assembly_origin_xyz active_assembly_parent active_assembly_child">
+    <joint name="${active_assembly_name}" type="fixed">
+      <origin rpy="${active_assembly_origin_rpy}" xyz="${active_assembly_origin_xyz}" />
+      <parent link="${active_assembly_parent}" />
+      <child link="${active_assembly_child}" />
+    </joint>
+</xacro:macro>
+
+<!-- Active static block-->
+<xacro:macro name="active_static_link_mesh" params="name origin_xyz origin_rpy">
+    <link name="${name}">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value ="${active_mass_static}" />
+        <inertia ixx="0.001" ixy="-1.292e-11" ixz="3.624e-12" iyy="4.195e-04" iyz="-9.613e-06" izz="0.001"/>
+      </inertial>
+      <visual>
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+        <geometry>
+          <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_fixed.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+              <material name="lightgrey">
+        <color rgba="0.95 0.95 0.95 0.5"/>
+      </material>
+      </visual>
+    </link>
+</xacro:macro>
+
+<!-- Active moving block-->
+<xacro:macro name="active_moving_link_mesh" params="name origin_xyz origin_rpy">
+    <link name="${name}">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value ="${active_mass_moving}" />
+        <inertia ixx="3.103e-04" ixy="-3.374e-13" ixz="1.202e-12" iyy="3.187e-04" iyz="8.958e-06" izz="5.995e-05"/>
+      </inertial>
+      <visual>
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+        <geometry>
+          <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_moving.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="red">
+          <color rgba="1 0 0 1"/>
+        </material>
+      </visual>
+    </link>
 </xacro:macro>
 
 </robot>
