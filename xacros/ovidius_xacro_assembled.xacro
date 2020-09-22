@@ -2,7 +2,7 @@
 
 <robot name="ovidius_smm" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<!-- Main assembly file of structures for Ovidius SMM -->
+<!-- Preparation assembly file of structures for Ovidius SMM. Builds structure S0110110. Used to calculate possible tf between building blocks. Every assembly component is parameterized and definitions are given in the corresponding yaml files included. -->
 
 <!-- START - Include -->
 
@@ -42,6 +42,11 @@
 <xacro:property name="active2pseudo1_origin_xyz" value="${active2pseudo1['active2pseudo1_origin_xyz']}" />
 <xacro:property name="active2pseudo1_origin_rpy" value="${active2pseudo1['active2pseudo1_origin_rpy']}" />
 
+<xacro:property name="active2pseudo2" value="${load_yaml(active2pseudojoints_configuration_file)}"/>
+<xacro:property name="active2pseudo2_name" value="${active2pseudo2['active2pseudo2_name']}" />
+<xacro:property name="active2pseudo2_origin_xyz" value="${active2pseudo2['active2pseudo2_origin_xyz']}" />
+<xacro:property name="active2pseudo2_origin_rpy" value="${active2pseudo2['active2pseudo2_origin_rpy']}" />
+
 <!-- ACTIVE MODULE PARTS -->
 <xacro:property name="active_properties_definition_file" value="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/yamls/test/active2pseudo_assemblies.yaml" />
 
@@ -55,11 +60,26 @@
 <xacro:property name="active1b_origin_xyz" value="${active1b['active1b_origin_xyz']}" />
 <xacro:property name="active1b_origin_rpy" value="${active1b['active1b_origin_rpy']}" />
 
+<xacro:property name="active2a" value="${load_yaml(active_properties_definition_file)}"/>
+<xacro:property name="active2a_name" value="${active2a['active2a_name']}" />
+<xacro:property name="active2a_origin_xyz" value="${active2a['active2a_origin_xyz']}" />
+<xacro:property name="active2a_origin_rpy" value="${active2a['active2a_origin_rpy']}" />
+
+<xacro:property name="active2b" value="${load_yaml(active_properties_definition_file)}"/>
+<xacro:property name="active2b_name" value="${active2b['active2b_name']}" />
+<xacro:property name="active2b_origin_xyz" value="${active2b['active2b_origin_xyz']}" />
+<xacro:property name="active2b_origin_rpy" value="${active2b['active2b_origin_rpy']}" />
+
 <!-- ACTIVE JOINTS -->
 <xacro:property name="active1" value="${load_yaml(active_properties_definition_file)}"/>
 <xacro:property name="active1_name" value="${active1['active1_name']}" />
 <xacro:property name="active1_origin_xyz" value="${active1['active1_origin_xyz']}" />
 <xacro:property name="active1_origin_rpy" value="${active1['active1_origin_rpy']}" />
+
+<xacro:property name="active2" value="${load_yaml(active_properties_definition_file)}"/>
+<xacro:property name="active2_name" value="${active2['active2_name']}" />
+<xacro:property name="active2_origin_xyz" value="${active2['active2_origin_xyz']}" />
+<xacro:property name="active2_origin_rpy" value="${active2['active2_origin_rpy']}" />
 
 <!-- PSEUDOJOINTS PARTS -->
 <xacro:property name="pseudo_modules_properties_definition_file" value="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/yamls/test/pseudos.yaml" />
@@ -216,5 +236,17 @@
 
 <!-- Start building Pseudojoint 4 MOVING PART-->
 <xacro:pseudo_moving_link_mesh name="${pseudo4b_name}" origin_xyz="${pseudo4b_origin_xyz}" origin_rpy="${pseudo4b_origin_rpy}"/>
+
+<!-- This fixed tf assembles active module of link to preceding pseudo-->
+<xacro:assembly_active_module2pseudo  active_assembly_name="${pseudo4b_name}__${active2a_name}"  active_assembly_origin_rpy="${active2pseudo2_origin_rpy}" active_assembly_origin_xyz="${active2pseudo2_origin_xyz}" active_assembly_parent="${pseudo4b_name}" active_assembly_child="${active2a_name}" />
+
+<!-- Adds Active Module STATIC PART-->
+<xacro:active_static_link_mesh name="${active2a_name}" origin_xyz="${active2a_origin_xyz}" origin_rpy="${active2a_origin_rpy}"/>
+
+<!-- Adds DXL Active joint -->
+<xacro:dxlPROp_joint active_name="${active2a_name}__${active2b_name}"  active_origin_rpy="${active2_origin_rpy}" active_origin_xyz="${active2_origin_xyz}" active_parent="${active2a_name}" active_child="${active2b_name}"/>
+
+<!-- Adds Active Module MOVING PART-->
+<xacro:active_moving_link_mesh name="${active2b_name}" origin_xyz="${active2b_origin_xyz}" origin_rpy="${active2b_origin_rpy}"/>
 
 </robot>

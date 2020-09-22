@@ -1,0 +1,9 @@
+#structure string definition
+s1: 0   # default
+s2: 21
+s3: 31
+s4: 0
+s5: 21
+s6: 31
+s7: 0
+s8: 9   # stop reading string value

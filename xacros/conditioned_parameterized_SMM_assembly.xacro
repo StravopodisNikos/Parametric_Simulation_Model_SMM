@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<robot name="ovidius_smm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!--Builds SMM structure using conditions. INPUT: Structure notation string. Code evaluates string elements and continues the robot assembly. Notation string is presented in notation_string.txt -->
+
+<!-- START - Include -->
+
+<!-- I.1.	INCLUDE XACROS THAT CONTAIN STRUCTURE BUILDING BLOCKS-->
+<xacro:include filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/xacros/ovidius_links_joints_names.xacro" />
+
+<!-- I.2	INCLUDE YAML PROPERTIES FILES FOR EACH STRUCTURE BUILDING BLOCK-->
+
+<!-- II.1	STRUCTURE STRING DEFINITION. This is imported by user  in the yaml file, based on desired structure/optimization results-->
+<xacro:property name="structure_string_definitions" value="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/yamls/test/test_structure_string_definition.yaml" />
+
+<xacro:property name="string_elements" value="${load_yaml(structure_string_definitions)}"/>
+<xacro:property name="s1" value="${string_elements['s1']}" />
+<xacro:property name="s2" value="${string_elements['s2']}" />
+<xacro:property name="s3" value="${string_elements['s3']}" />
+<xacro:property name="s4" value="${string_elements['s4']}" />
+<xacro:property name="s5" value="${string_elements['s5']}" />
+<xacro:property name="s6" value="${string_elements['s6']}" />
+<xacro:property name="s7" value="${string_elements['s7']}" />
+
+<!-- III.1	ROBOT to be generated to URDF model-->
+
+</robot>
