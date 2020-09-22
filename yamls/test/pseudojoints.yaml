@@ -5,3 +5,11 @@ pseudo1_origin_rpy: 1.5708 0 0
 pseudo2_name: pseudo2
 pseudo2_origin_xyz: 0 0.025 0.118     
 pseudo2_origin_rpy: 1.5708 0 0    
+
+pseudo3_name: pseudo3
+pseudo3_origin_xyz: 0 0.025 0.118     
+pseudo3_origin_rpy: 1.5708 0 0
+
+pseudo4_name: pseudo4
+pseudo4_origin_xyz: 0 0.025 0.118     
+pseudo4_origin_rpy: 1.5708 0 0

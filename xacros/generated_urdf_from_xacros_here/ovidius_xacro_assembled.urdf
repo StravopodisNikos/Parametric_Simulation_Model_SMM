@@ -118,12 +118,12 @@
       </material>
     </visual>
   </link>
-  <joint name="pseudo2b__active_module1" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0.1 0"/>
+  <joint name="pseudo2b__active_module1a" type="fixed">
+    <origin rpy="0 1.5708 0" xyz="0 0.1 0"/>
     <parent link="pseudo2b"/>
-    <child link="active_module1"/>
+    <child link="active_module1a"/>
   </joint>
-  <link name="active_module1">
+  <link name="active_module1a">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.892"/>
@@ -136,6 +136,114 @@
       </geometry>
       <material name="lightgrey">
         <color rgba="0.95 0.95 0.95 0.5"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="active_module1a__active_module1b" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0.032 0"/>
+    <parent link="active_module1a"/>
+    <child link="active_module1b"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="55" lower="-2" upper="2" velocity="4.0841"/>
+    <dynamics damping="0.5"/>
+  </joint>
+  <link name="active_module1b">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.102"/>
+      <inertia ixx="3.103e-04" ixy="-3.374e-13" ixz="1.202e-12" iyy="3.187e-04" iyz="8.958e-06" izz="5.995e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 3.1416 0" xyz="0 0 -0.0176"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_moving.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="active_module1b__pseudo3a" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0955 -0.05"/>
+    <parent link="active_module1b"/>
+    <child link="pseudo3a"/>
+  </joint>
+  <link name="pseudo3a">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="2.2036439"/>
+      <inertia ixx="3.5655174315e-07" ixy="3.0094534019e-15" ixz="-3.0659548585e-16" iyy="8.1971725028e-7" iyz="1.0236492333e-16" izz="5.0684999189e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.5708 0 0" xyz="-0.0375 0.2 -0.05"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Pseudos/pjoint1_static.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver">
+        <color rgba="0.753 0.753 0.753 0.5"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="pseudo3a__pseudo3b" type="fixed">
+    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <parent link="pseudo3a"/>
+    <child link="pseudo3b"/>
+  </joint>
+  <link name="pseudo3b">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.4450127"/>
+      <inertia ixx="1.345843e-07" ixy="1.399547e-14" ixz="-2.461662e-15" iyy="1.577317e-7" iyz="2.024057e-13" izz="1.101806e-7"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.061 -0.167 -0.177"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Pseudos/pjoint1_moveable.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lime">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="pseudo3b__pseudo4a" type="fixed">
+    <origin rpy="0 1.5708 0" xyz="-0.075 0.1444 0"/>
+    <parent link="pseudo3b"/>
+    <child link="pseudo4a"/>
+  </joint>
+  <link name="pseudo4a">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="2.2036439"/>
+      <inertia ixx="3.5655174315e-07" ixy="3.0094534019e-15" ixz="-3.0659548585e-16" iyy="8.1971725028e-7" iyz="1.0236492333e-16" izz="5.0684999189e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.5708 0 0" xyz="-0.0375 0.2 -0.05"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Pseudos/pjoint1_static.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver">
+        <color rgba="0.753 0.753 0.753 0.5"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="pseudo4a__pseudo4b" type="fixed">
+    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <parent link="pseudo4a"/>
+    <child link="pseudo4b"/>
+  </joint>
+  <link name="pseudo4b">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.4450127"/>
+      <inertia ixx="1.345843e-07" ixy="1.399547e-14" ixz="-2.461662e-15" iyy="1.577317e-7" iyz="2.024057e-13" izz="1.101806e-7"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.061 -0.167 -0.177"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Pseudos/pjoint1_moveable.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lime">
+        <color rgba="1 1 0 1"/>
       </material>
     </visual>
   </link>

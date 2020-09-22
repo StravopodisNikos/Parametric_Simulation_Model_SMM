@@ -1,3 +1,4 @@
+#pseudo modules
 pseudo1a_name: pseudo1a
 pseudo1a_origin_xyz: -0.0375 0.2 -0.05
 pseudo1a_origin_rpy: 1.5708 0 0
@@ -13,3 +14,19 @@ pseudo2a_origin_rpy: 1.5708 0 0
 pseudo2b_name: pseudo2b
 pseudo2b_origin_xyz: -0.061 -0.167 -0.177
 pseudo2b_origin_rpy: 0 0 0
+
+pseudo3a_name: pseudo3a
+pseudo3a_origin_xyz: -0.0375 0.2 -0.05
+pseudo3a_origin_rpy: 1.5708 0 0
+
+pseudo3b_name: pseudo3b
+pseudo3b_origin_xyz: -0.061 -0.167 -0.177
+pseudo3b_origin_rpy: 0 0 0
+
+pseudo4a_name: pseudo4a
+pseudo4a_origin_xyz: -0.0375 0.2 -0.05
+pseudo4a_origin_rpy: 1.5708 0 0
+
+pseudo4b_name: pseudo4b
+pseudo4b_origin_xyz: -0.061 -0.167 -0.177
+pseudo4b_origin_rpy: 0 0 0

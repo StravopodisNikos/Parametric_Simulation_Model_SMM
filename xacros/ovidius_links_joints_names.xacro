@@ -108,11 +108,23 @@
         <geometry>
           <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_moving.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="red">
-          <color rgba="1 0 0 1"/>
+        <material name="black">
+          <color rgba="0.1 0.1 0.1 1"/>
         </material>
       </visual>
     </link>
+</xacro:macro>
+
+<!-- Synthetic joint parameters-->
+ <xacro:macro name="dxlPROp_joint" params="active_name  active_origin_rpy active_origin_xyz active_parent active_child">
+    <joint name="${active_name}" type="revolute">
+      <origin rpy="${active_origin_rpy}" xyz="${active_origin_xyz}" />
+      <parent link="${active_parent}" />
+      <child link="${active_child}" />
+      <axis xyz="0 0 1"/>
+      <limit effort="55" lower="-2" upper="2" velocity="4.0841"/>
+      <dynamics damping="0.5"/>
+    </joint>
 </xacro:macro>
 
 </robot>
