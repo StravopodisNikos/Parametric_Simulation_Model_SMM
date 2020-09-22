@@ -1,6 +1,8 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
  
+<!-- ALL components used to assemble the Ovidius SMM are defined here. This file should be xacro:included in each xacro:assembly robot urdf file! -->
+
 <!-- MASS parameters for Pseudojoint Design-->
 <xacro:property name="pseudo_mass_static" value="2.2036439"/>
 <xacro:property name="pseudo_mass_moving" value="0.4450127"/>
@@ -88,8 +90,8 @@
         <geometry>
           <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_fixed.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-              <material name="lightgrey">
-        <color rgba="0.95 0.95 0.95 0.5"/>
+              <material name="lightblack">
+        <color rgba="0.25 0.25 0.25 0.25"/>
       </material>
       </visual>
     </link>
