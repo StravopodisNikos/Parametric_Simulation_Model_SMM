@@ -15,12 +15,12 @@ synthetic2_origin_ry: 0 #ct
 
 synthetic3_name: synthetic3 # dxl_frame->pseudo_static_back
 #synthetic3_origin_xyz: 0 0.0955 -0.05 # Px01101 fixed Py01101 fixed Pz01101 \in [-0.13~-0.03]
-synthetic3_origin_x: 0 #ct
+#synthetic3_origin_x: -0.05 #var
 synthetic3_origin_y: 0.0955 #ct
 #synthetic3_origin_z: -0.05 #var
 #synthetic3_origin_rpy: 0 0 0 # Rx01101  Ry01101  Rz01101 
 synthetic3_origin_r: 0 #ct
-synthetic3_origin_p: 0 #ct
+#synthetic3_origin_p: 1.5708 #var
 synthetic3_origin_ry: 0 #ct
 
 synthetic4_name: synthetic4 #pseudo_moving->pseudo_static_under

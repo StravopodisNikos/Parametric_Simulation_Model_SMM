@@ -82,7 +82,7 @@
   </link>
   <!-- NO additional condition is checked for the first pseudo of the first link! Moves on to check if 2nd pseudo exists-->
   <joint name="pseudo_b_1__pseudo_a_2" type="fixed">
-    <origin rpy="-1.5708 1.5708 0" xyz="0 0.101 0"/>
+    <origin rpy="0 1.5708 0" xyz="-0.075 0.1444 0"/>
     <parent link="pseudo_b_1"/>
     <child link="pseudo_a_2"/>
   </joint>
@@ -171,7 +171,7 @@
   </link>
   <!--  First case is this meta link had pseudo in first string parameter-->
   <joint name="active_module_b_1__pseudo_a_3" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0.0955 -0.05"/>
+    <origin rpy="0 1.5708 0" xyz="-0.055 0.0955 -0.05"/>
     <parent link="active_module_b_1"/>
     <child link="pseudo_a_3"/>
   </joint>
@@ -213,7 +213,7 @@
     </visual>
   </link>
   <joint name="pseudo_b_3__pseudo_a_4" type="fixed">
-    <origin rpy="-1.5708 1.5708 0" xyz="0 0.101 0"/>
+    <origin rpy="0 1.5708 0" xyz="-0.075 0.1444 0"/>
     <parent link="pseudo_b_3"/>
     <child link="pseudo_a_4"/>
   </joint>
