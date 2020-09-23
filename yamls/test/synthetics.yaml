@@ -6,7 +6,7 @@ synthetic2_name: synthetic2 #pseudo_moving->pseudo_static_back
 synthetic2_origin_xyz: -0.075 0.1444 0 # Px011 \in [-0.025~0.025]  Py011 fixed@ Pz011 fixed@
 synthetic2_origin_rpy: 0 1.5708 0     # Rx011 fixed@ Ry011 \in [-1.5708,1.5708] Rz011 fixed@
 
-synthetic3_name: synthetic3 # dxl_frame->pseudo_static
+synthetic3_name: synthetic3 # dxl_frame->pseudo_static_back
 synthetic3_origin_xyz: 0 0.0955 -0.05 # Px01101 fixed Py01101 fixed Pz01101 \in [-0.13~-0.03]
 synthetic3_origin_rpy: 0 0 0 # Rx01101  Ry01101  Rz01101 
 
