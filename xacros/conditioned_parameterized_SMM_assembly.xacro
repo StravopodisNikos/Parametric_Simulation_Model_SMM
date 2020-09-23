@@ -266,38 +266,229 @@
 </xacro:if>	
 
 <!-- STARTED SECOND METAMORPHIC LINK -->
-<xacro:unless value="${s5 == 9}"> <!-- if pseudo in this position of structure chain exists continue checking for assembly details -->
+<xacro:unless value="${s5 == 9}"> <!--  First case is this meta link had pseudo in first string parameter-->
 
-			<xacro:if value="${s5 == 31}">
+	<xacro:unless value="${s2 == 9 or s3==9}"> <!--  First sub-case is previous meta link had 2 pseudos-->
+		<xacro:property name="last_pseudo_cnt" value="2" />
+		<xacro:property name="pseudo_cnt" value="3" />
+		
+		<xacro:if value="${s5 == 31}">
 
-				<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${pseudo_a_name}_3"  synthetic_origin_rpy="${synthetic3_origin_r} ${synthetic3_origin_p} ${synthetic3_origin_ry}" synthetic_origin_xyz="${synthetic3_origin_x} ${synthetic3_origin_y} ${synthetic3_origin_z}" synthetic_parent="${active_b_name}_1" synthetic_child="${pseudo_a_name}_3" />	
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic3_origin_r} ${synthetic3_origin_p} ${synthetic3_origin_ry}" synthetic_origin_xyz="${synthetic3_origin_x} ${synthetic3_origin_y} ${synthetic3_origin_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
 
-				<!-- Start building Pseudojoint 3 STATIC PART-->
-				<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_3" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+			<!-- Start building Pseudojoint 3 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+			<!-- Start building Pseudojoint 3 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+
+		</xacro:if>
+
+		<xacro:if value="${s5 == 21}">
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic5_origin_r} ${synthetic5_origin_p} ${synthetic5_origin_ry}" synthetic_origin_xyz="${synthetic5_origin_x} ${synthetic5_origin_y} ${synthetic5_origin_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+			<!-- Start building Pseudojoint 3 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+			<!-- Start building Pseudojoint 3 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+
+		</xacro:if>
+
+		<!-- Now evaluate next string of meta link!-->
+		<xacro:unless value="${s6 == 9}">
+			<xacro:property name="last_pseudo_cnt" value="3" />
+			<xacro:property name="pseudo_cnt" value="4" />
+		
+			<xacro:if value="${s6 == 21}">
+
+				<xacro:synthetic_joint_name  synthetic_name="${pseudo_b_name}_${last_pseudo_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic4_origin_r} ${synthetic4_origin_p} ${synthetic4_origin_ry}" synthetic_origin_xyz="${synthetic4_origin_x} ${synthetic4_origin_y} ${synthetic4_origin_z}" synthetic_parent="${pseudo_b_name}_${last_pseudo_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+				<!-- Start building Pseudojoint 1 STATIC PART-->
+				<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
 
 				<!-- PSEUDO2 CONFIGURATION -->
-				<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_3__${pseudo_b_name}_3"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_3" pseudo_child="${pseudo_b_name}_3" />
+				<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo2_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
 
-				<!-- Start building Pseudojoint 3 MOVING PART-->
-				<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_3" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+				<!-- Start building Pseudojoint 1 MOVING PART-->
+				<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
 
-			</xacro:if>
+			</xacro:if>	
 
-			<xacro:if value="${s5 == 21}">
+			<xacro:if value="${s6 == 31}">
 
-				<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_1__${pseudo_a_name}_3"  synthetic_origin_rpy="${synthetic5_origin_r} ${synthetic5_origin_p} ${synthetic5_origin_ry}" synthetic_origin_xyz="${synthetic5_origin_x} ${synthetic5_origin_y} ${synthetic5_origin_z}" synthetic_parent="${active_b_name}_1" synthetic_child="${pseudo_a_name}_3" />	
+				<xacro:synthetic_joint_name  synthetic_name="${pseudo_b_name}_${last_pseudo_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic2_origin_r} ${synthetic2_origin_p} ${synthetic2_origin_ry}" synthetic_origin_xyz="${synthetic2_origin_x} ${synthetic2_origin_y} ${synthetic2_origin_z}" synthetic_parent="${pseudo_b_name}_${last_pseudo_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
 
-				<!-- Start building Pseudojoint 3 STATIC PART-->
-				<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_3" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+				<!-- Start building Pseudojoint 2 STATIC PART-->
+				<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
 
 				<!-- PSEUDO2 CONFIGURATION -->
-				<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_3__${pseudo_b_name}_3"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_3" pseudo_child="${pseudo_b_name}_3" />
+				<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo2_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
 
-				<!-- Start building Pseudojoint 3 MOVING PART-->
-				<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_3" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+				<!-- Start building Pseudojoint 2 MOVING PART-->
+				<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>	
 
-			</xacro:if>				
+			</xacro:if>	
 
-</xacro:unless>	
+		</xacro:unless>
+
+	</xacro:unless>
+
+	<xacro:if value="${s2 == 9 or s3==9}"> <!--  Second sub-case is previous meta link had 1 pseudo-->
+		<xacro:property name="last_pseudo_cnt" value="1" />
+		<xacro:property name="pseudo_cnt" value="2" />
+
+		<xacro:if value="${s5 == 31}">
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic3_origin_r} ${synthetic3_origin_p} ${synthetic3_origin_ry}" synthetic_origin_xyz="${synthetic3_origin_x} ${synthetic3_origin_y} ${synthetic3_origin_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+			<!-- Start building Pseudojoint 3 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+			<!-- Start building Pseudojoint 3 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+
+		</xacro:if>
+
+		<xacro:if value="${s5 == 21}">
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic5_origin_r} ${synthetic5_origin_p} ${synthetic5_origin_ry}" synthetic_origin_xyz="${synthetic5_origin_x} ${synthetic5_origin_y} ${synthetic5_origin_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+			<!-- Start building Pseudojoint 3 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+			<!-- Start building Pseudojoint 3 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+
+		</xacro:if>	
+
+		<!-- Now evaluate next string of meta link!-->
+		<xacro:unless value="${s6 == 9}">
+			<xacro:property name="last_pseudo_cnt" value="2" />
+			<xacro:property name="pseudo_cnt" value="3" />
+		
+			<xacro:if value="${s6 == 21}">
+
+				<xacro:synthetic_joint_name  synthetic_name="${pseudo_b_name}_${last_pseudo_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic4_origin_r} ${synthetic4_origin_p} ${synthetic4_origin_ry}" synthetic_origin_xyz="${synthetic4_origin_x} ${synthetic4_origin_y} ${synthetic4_origin_z}" synthetic_parent="${pseudo_b_name}_${last_pseudo_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+				<!-- Start building Pseudojoint 1 STATIC PART-->
+				<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+				<!-- PSEUDO2 CONFIGURATION -->
+				<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo2_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+				<!-- Start building Pseudojoint 1 MOVING PART-->
+				<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+
+			</xacro:if>	
+
+			<xacro:if value="${s6 == 31}">
+
+				<xacro:synthetic_joint_name  synthetic_name="${pseudo_b_name}_${last_pseudo_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic2_origin_r} ${synthetic2_origin_p} ${synthetic2_origin_ry}" synthetic_origin_xyz="${synthetic2_origin_x} ${synthetic2_origin_y} ${synthetic2_origin_z}" synthetic_parent="${pseudo_b_name}_${last_pseudo_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+				<!-- Start building Pseudojoint 2 STATIC PART-->
+				<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+				<!-- PSEUDO2 CONFIGURATION -->
+				<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo2_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+				<!-- Start building Pseudojoint 2 MOVING PART-->
+				<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>	
+
+			</xacro:if>	
+
+		</xacro:unless>
+
+	</xacro:if>
+
+
+</xacro:unless>
+
+<xacro:if value="${s5 == 9}">  <!--  Second case is this meta link had no-pseudo in first string parameter => Builds next string-->
+	<xacro:unless value="${s2 == 9 and s3==9}"> <!--  First sub-case is previous meta link had 2 pseudos-->
+		<xacro:property name="last_pseudo_cnt" value="2" />
+		<xacro:property name="pseudo_cnt" value="3" />
+		
+		<xacro:if value="${s6 == 31}">
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic3_origin_r} ${synthetic3_origin_p} ${synthetic3_origin_ry}" synthetic_origin_xyz="${synthetic3_origin_x} ${synthetic3_origin_y} ${synthetic3_origin_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+			<!-- Start building Pseudojoint 3 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+			<!-- Start building Pseudojoint 3 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+
+		</xacro:if>
+
+		<xacro:if value="${s6 == 21}">
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic5_origin_r} ${synthetic5_origin_p} ${synthetic5_origin_ry}" synthetic_origin_xyz="${synthetic5_origin_x} ${synthetic5_origin_y} ${synthetic5_origin_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+			<!-- Start building Pseudojoint 3 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+			<!-- Start building Pseudojoint 3 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+
+		</xacro:if>				
+	</xacro:unless>
+
+	<xacro:if value="${s2 == 9 or s3==9}"> <!--  Second sub-case is previous meta link had 1 pseudo-->
+		<xacro:property name="last_pseudo_cnt" value="1" />
+		<xacro:property name="pseudo_cnt" value="2" />
+
+		<xacro:if value="${s6 == 31}">
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic3_origin_r} ${synthetic3_origin_p} ${synthetic3_origin_ry}" synthetic_origin_xyz="${synthetic3_origin_x} ${synthetic3_origin_y} ${synthetic3_origin_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+			<!-- Start building Pseudojoint 3 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+			<!-- Start building Pseudojoint 3 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+
+		</xacro:if>
+
+		<xacro:if value="${s6 == 21}">
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic5_origin_r} ${synthetic5_origin_p} ${synthetic5_origin_ry}" synthetic_origin_xyz="${synthetic5_origin_x} ${synthetic5_origin_y} ${synthetic5_origin_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+			<!-- Start building Pseudojoint 3 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo3_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+			<!-- Start building Pseudojoint 3 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>				
+
+		</xacro:if>	
+
+	</xacro:if>	
+</xacro:if>
+
 
 </robot>
