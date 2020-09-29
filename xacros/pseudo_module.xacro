@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ovidius_v1">
+
+<!-- Pseudojoint angles are designated as fixed and user specifies the θp angle! -->
+<xacro:property name="theta_p_1" value="1.5708"/>
+<xacro:property name="final_theta_p_1" value="${0+theta_p_1}"/>
+
+<xacro:property name="pseudo_mass_static" value="2.2036439"/>
+<xacro:property name="pseudo_mass_moving" value="0.4450127"/>
+
+<!-- Synthetic C011-->
+<xacro:property name="Rx011" value="0"/>
+<xacro:property name="Ry011" value="0"/>
+<xacro:property name="Rz011" value="0"/>
+<xacro:property name="Px011" value="0"/>
+<xacro:property name="fPx011" value="${0+Px011}"/>
+<xacro:property name="Py011" value="0"/>
+<xacro:property name="Pz011" value="0.048"/>
+<xacro:property name="fPz011" value="${0+Pz011}"/>
+
+<link name="world"/>
+
+<joint name="world__base_link" type="fixed">
+<origin rpy="0 0 0" xyz="0 0 0"/>
+<parent link="world"/>
+<child link="base_link"/>
+</joint>
+
+<link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00205 0.00373 0.020774"/>
+      <mass value ="0.500" />
+      <inertia ixx="5.063e-004" ixy="2.773e-005" ixz="7.042e-007" iyy="5.387e-004" iyz="1.237e-006" izz="7.207e-004"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0.5" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/baselink/ovidius_smm_baselink.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 0.9"/>
+      </material>
+    </visual>
+</link>
+
+  <joint name="base_link__PseudoConnector1a" type="revolute">
+    <origin rpy="${Rx011} ${Ry011} ${Rz011}" xyz="${fPx011} ${Py011} ${fPz011}"/>
+    <parent link="base_link"/>
+    <child link="PseudoConnector1a"/>
+    <!-- axis,limit,dynamics are only added here to be able to compute COM in matlab-->
+    <axis xyz="0 0 1"/>
+	<limit effort="55" lower="-2" upper="2" velocity="4.0841"/>
+	<dynamics damping="0.5"/>
+  </joint>
+
+<link name="PseudoConnector1a">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value ="${pseudo_mass_static}" />
+        <inertia ixx="3.5655174315e-07" ixy="3.0094534019e-15" ixz="-3.0659548585e-16" iyy="8.1971725028e-7" iyz="1.0236492333e-16" izz="5.0684999189e-07"/>
+      </inertial>
+      <visual>
+      <origin rpy="1.5708 0 0" xyz="-0.0375 0.2 -0.05"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Pseudos/pjoint1_static.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver">
+        <color rgba="0.753 0.753 0.753 0.5"/>
+      </material>
+    </visual>
+</link>
+
+  <!-- This is the pseudojoint1 joint angle congiguration -->
+   <!-- 0ref = 3.14 radians y-axis-->
+  <joint name="PseudoConnector1a__PseudoConnector1b" type="fixed">
+    <origin rpy="${final_theta_p_1} 0 0" xyz="0 0.025 0.118"/>
+    <parent link="PseudoConnector1a"/>
+    <child link="PseudoConnector1b"/>
+  </joint>
+
+<link name="PseudoConnector1b">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value ="${pseudo_mass_moving}" />
+      <inertia ixx="1.345843e-07" ixy="1.399547e-14" ixz="-2.461662e-15" iyy="1.577317e-7" iyz="2.024057e-13" izz="1.101806e-7"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.061 -0.167 -0.177"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Pseudos/pjoint1_moveable.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lime">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+</link>
+
+
+</robot>
