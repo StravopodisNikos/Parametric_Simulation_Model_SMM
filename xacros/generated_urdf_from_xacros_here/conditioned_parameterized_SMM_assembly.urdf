@@ -171,7 +171,7 @@
   </link>
   <!--  First case is this meta link had pseudo in first string parameter-->
   <joint name="active_module_b_1__pseudo_a_3" type="fixed">
-    <origin rpy="0 1.5708 0" xyz="-0.055 0.0955 -0.05"/>
+    <origin rpy="-1.5708 0 0" xyz="0 0.0525 -0.015"/>
     <parent link="active_module_b_1"/>
     <child link="pseudo_a_3"/>
   </joint>
@@ -251,6 +251,51 @@
       </geometry>
       <material name="lime">
         <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="pseudo_b_4__active_module_a_2" type="fixed">
+    <origin rpy="0 1.5708 0" xyz="0 0.1 0"/>
+    <parent link="pseudo_b_4"/>
+    <child link="active_module_a_2"/>
+  </joint>
+  <link name="active_module_a_2">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.892"/>
+      <inertia ixx="0.001" ixy="-1.292e-11" ixz="3.624e-12" iyy="4.195e-04" iyz="-9.613e-06" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5708 0 0" xyz="0 0.071 -0.1425"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_fixed.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="lightblack">
+        <color rgba="0.25 0.25 0.25 0.25"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="active_module_a_2__active_module_b_2" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0.032 0"/>
+    <parent link="active_module_a_2"/>
+    <child link="active_module_b_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="55" lower="-2" upper="2" velocity="4.0841"/>
+    <dynamics damping="0.5"/>
+  </joint>
+  <link name="active_module_b_2">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.102"/>
+      <inertia ixx="3.103e-04" ixy="-3.374e-13" ixz="1.202e-12" iyy="3.187e-04" iyz="8.958e-06" izz="5.995e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 3.1416 0" xyz="0 0 -0.0176"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_moving.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
   </link>

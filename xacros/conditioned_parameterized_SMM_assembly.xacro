@@ -492,4 +492,23 @@
 </xacro:if>
 
 
+<!-- ADD THIRD ROBOT JOINT->SECOND DYNAMIXEL JOINT -->
+<!-- This fixed tf assembles active module of link to preceding pseudo-->
+<xacro:if value="${s7 == 0}">
+
+	<xacro:property name="active_cnt" value="2" />
+
+	<xacro:assembly_active_module2pseudo  active_assembly_name="${pseudo_b_name}_${pseudo_cnt}__${active_a_name}_${active_cnt}"  active_assembly_origin_rpy="${active2pseudo_origin_rpy}" active_assembly_origin_xyz="${active2pseudo_origin_xyz}" active_assembly_parent="${pseudo_b_name}_${pseudo_cnt}" active_assembly_child="${active_a_name}_${active_cnt}" />
+
+	<!-- Adds Active Module STATIC PART-->
+	<xacro:active_static_link_mesh name="${active_a_name}_${active_cnt}" origin_xyz="${active_a_origin_xyz}" origin_rpy="${active_a_origin_rpy}"/>
+
+	<!-- Adds DXL Active joint -->
+	<xacro:dxlPROp_joint active_name="${active_a_name}_${active_cnt}__${active_b_name}_${active_cnt}"  active_origin_rpy="${active_origin_rpy}" active_origin_xyz="${active_origin_xyz}" active_parent="${active_a_name}_${active_cnt}" active_child="${active_b_name}_${active_cnt}"/>
+
+	<!-- Adds Active Module MOVING PART-->
+	<xacro:active_moving_link_mesh name="${active_b_name}_${active_cnt}" origin_xyz="${active_b_origin_xyz}" origin_rpy="${active_b_origin_rpy}"/>
+
+</xacro:if>	
+
 </robot>
