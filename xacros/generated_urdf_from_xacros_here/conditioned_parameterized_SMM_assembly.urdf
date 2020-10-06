@@ -60,7 +60,7 @@
     </visual>
   </link>
   <joint name="pseudo_a_1__pseudo_b_1" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="2.5708 0 0" xyz="0 0.025 0.118"/>
     <parent link="pseudo_a_1"/>
     <child link="pseudo_b_1"/>
   </joint>
@@ -103,7 +103,7 @@
     </visual>
   </link>
   <joint name="pseudo_a_2__pseudo_b_2" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="0.5708 0 0" xyz="0 0.025 0.118"/>
     <parent link="pseudo_a_2"/>
     <child link="pseudo_b_2"/>
   </joint>
@@ -192,7 +192,7 @@
     </visual>
   </link>
   <joint name="pseudo_a_3__pseudo_b_3" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="2.5708 0 0" xyz="0 0.025 0.118"/>
     <parent link="pseudo_a_3"/>
     <child link="pseudo_b_3"/>
   </joint>
@@ -234,7 +234,7 @@
     </visual>
   </link>
   <joint name="pseudo_a_4__pseudo_b_4" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="0.5708 0 0" xyz="0 0.025 0.118"/>
     <parent link="pseudo_a_4"/>
     <child link="pseudo_b_4"/>
   </joint>
