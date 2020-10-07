@@ -19,7 +19,7 @@
 <xacro:property name="fPz011" value="${0+Pz011}"/>
 
 <link name="world"/>
-
+<!--
 <joint name="world__base_link" type="fixed">
 <origin rpy="0 0 0" xyz="0 0 0"/>
 <parent link="world"/>
@@ -42,10 +42,11 @@
       </material>
     </visual>
 </link>
-
-  <joint name="base_link__PseudoConnector1a" type="revolute">
-    <origin rpy="${Rx011} ${Ry011} ${Rz011}" xyz="${fPx011} ${Py011} ${fPz011}"/>
-    <parent link="base_link"/>
+-->
+  <joint name="world__PseudoConnector1a" type="revolute">
+    <!--<origin rpy="${Rx011} ${Ry011} ${Rz011}" xyz="${fPx011} ${Py011} ${fPz011}"/>-->
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="world"/>
     <child link="PseudoConnector1a"/>
     <!-- axis,limit,dynamics are only added here to be able to compute COM in matlab-->
     <axis xyz="0 0 1"/>
@@ -55,7 +56,7 @@
 
 <link name="PseudoConnector1a">
       <inertial>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0.09"/>
         <mass value ="${pseudo_mass_static}" />
         <inertia ixx="3.5655174315e-07" ixy="3.0094534019e-15" ixz="-3.0659548585e-16" iyy="8.1971725028e-7" iyz="1.0236492333e-16" izz="5.0684999189e-07"/>
       </inertial>
@@ -80,7 +81,7 @@
 
 <link name="PseudoConnector1b">
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0.04"/>
       <mass value ="${pseudo_mass_moving}" />
       <inertia ixx="1.345843e-07" ixy="1.399547e-14" ixz="-2.461662e-15" iyy="1.577317e-7" iyz="2.024057e-13" izz="1.101806e-7"/>
     </inertial>
