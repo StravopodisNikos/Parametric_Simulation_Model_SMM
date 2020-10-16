@@ -1,0 +1,19 @@
+synthetic1_name: synthetic1
+synthetic1_origin_xyz: 0 0 0.048 # Rx01 Ry01 Rz01
+synthetic1_origin_rpy: 0 0 0     # Px01 Py01 Pz01
+
+synthetic2_name: synthetic2 #pseudo_moving->pseudo_static_back
+synthetic2_origin_xyz: -0.075 0.1444 0 # Px011 \in [-0.025~0.025]  Py011 fixed@ Pz011 fixed@
+synthetic2_origin_rpy: 0 1.5708 0     # Rx011 fixed@ Ry011 \in [-1.5708,1.5708] Rz011 fixed@
+
+synthetic3_name: synthetic3 # dxl_frame->pseudo_static_back
+synthetic3_origin_xyz: 0 0.0955 -0.05 # Px01101 fixed Py01101 fixed Pz01101 \in [-0.13~-0.03]
+synthetic3_origin_rpy: 0 0 0 # Rx01101  Ry01101  Rz01101 
+
+synthetic4_name: synthetic4 # pseudo_moving3->pseudo_static4
+synthetic4_origin_xyz: -0.075 0.1444 0 # Px011011  Py011011  Pz011011 
+synthetic4_origin_rpy: 0 1.5708 0 # Rx011011  Ry011011  Rz011011 
+
+synthetic5_name: synthetic5 # dxl_frame->pseudo_static_under
+synthetic5_origin_xyz: 0 0.0525 -0.015 
+synthetic5_origin_rpy: -1.5708 0 0

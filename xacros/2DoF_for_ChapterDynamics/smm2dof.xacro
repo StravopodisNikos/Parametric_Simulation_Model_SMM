@@ -1,0 +1,186 @@
+<?xml version="1.0" ?>
+
+<robot name="ovidius_smm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- Preparation assembly file of structures for Ovidius SMM. Builds structure S0110110. Used to calculate possible tf between building blocks. Every assembly component is parameterized and definitions are given in the corresponding yaml files included. -->
+
+<!-- START - Include -->
+
+<!-- INCLUDE XACROS THAT CONTAIN STRUCTURE BUILDING BLOCKS-->
+<xacro:include filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/xacros/ovidius_links_joints_names.xacro" />
+
+<!-- INCLUDE YAML PROPERTIES FILES FOR EACH STRUCTURE BUILDING BLOCK-->
+
+<!-- SYNTHETIC JOINTS -->
+<xacro:property name="synthetics_properties_definition_file" value="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/yamls/smm2dof/synthetics.yaml" />
+
+<xacro:property name="synthetic1" value="${load_yaml(synthetics_properties_definition_file)}"/>
+<xacro:property name="synthetic1_name" value="${synthetic1['synthetic1_name']}" />
+<xacro:property name="synthetic1_origin_xyz" value="${synthetic1['synthetic1_origin_xyz']}" />
+<xacro:property name="synthetic1_origin_rpy" value="${synthetic1['synthetic1_origin_rpy']}" />
+
+<xacro:property name="synthetic2" value="${load_yaml(synthetics_properties_definition_file)}"/>
+<xacro:property name="synthetic2_name" value="${synthetic2['synthetic2_name']}" />
+<xacro:property name="synthetic2_origin_xyz" value="${synthetic2['synthetic2_origin_xyz']}" />
+<xacro:property name="synthetic2_origin_rpy" value="${synthetic2['synthetic2_origin_rpy']}" />
+
+<xacro:property name="synthetic3" value="${load_yaml(synthetics_properties_definition_file)}"/>
+<xacro:property name="synthetic3_name" value="${synthetic3['synthetic3_name']}" />
+<xacro:property name="synthetic3_origin_xyz" value="${synthetic3['synthetic3_origin_xyz']}" />
+<xacro:property name="synthetic3_origin_rpy" value="${synthetic3['synthetic3_origin_rpy']}" />
+
+<xacro:property name="synthetic4" value="${load_yaml(synthetics_properties_definition_file)}"/>
+<xacro:property name="synthetic4_name" value="${synthetic4['synthetic4_name']}" />
+<xacro:property name="synthetic4_origin_xyz" value="${synthetic4['synthetic4_origin_xyz']}" />
+<xacro:property name="synthetic4_origin_rpy" value="${synthetic4['synthetic4_origin_rpy']}" />
+
+<xacro:property name="synthetic5" value="${load_yaml(synthetics_properties_definition_file)}"/>
+<xacro:property name="synthetic5_name" value="${synthetic5['synthetic5_name']}" />
+<xacro:property name="synthetic5_origin_xyz" value="${synthetic5['synthetic5_origin_xyz']}" />
+<xacro:property name="synthetic5_origin_rpy" value="${synthetic5['synthetic5_origin_rpy']}" />
+
+<!-- ACTIVE2PSEUDOS FIXED TFs -->
+<xacro:property name="active2pseudojoints_configuration_file" value="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/yamls/smm2dof/active2pseudo_assemblies.yaml" />
+
+<xacro:property name="active2pseudo1" value="${load_yaml(active2pseudojoints_configuration_file)}"/>
+<xacro:property name="active2pseudo1_name" value="${active2pseudo1['active2pseudo1_name']}" />
+<xacro:property name="active2pseudo1_origin_xyz" value="${active2pseudo1['active2pseudo1_origin_xyz']}" />
+<xacro:property name="active2pseudo1_origin_rpy" value="${active2pseudo1['active2pseudo1_origin_rpy']}" />
+
+<xacro:property name="active2pseudo2" value="${load_yaml(active2pseudojoints_configuration_file)}"/>
+<xacro:property name="active2pseudo2_name" value="${active2pseudo2['active2pseudo2_name']}" />
+<xacro:property name="active2pseudo2_origin_xyz" value="${active2pseudo2['active2pseudo2_origin_xyz']}" />
+<xacro:property name="active2pseudo2_origin_rpy" value="${active2pseudo2['active2pseudo2_origin_rpy']}" />
+
+<!-- ACTIVE MODULE PARTS -->
+<xacro:property name="active_properties_definition_file" value="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/yamls/smm2dof/active2pseudo_assemblies.yaml" />
+
+<xacro:property name="active1a" value="${load_yaml(active_properties_definition_file)}"/>
+<xacro:property name="active1a_name" value="${active1a['active1a_name']}" />
+<xacro:property name="active1a_origin_xyz" value="${active1a['active1a_origin_xyz']}" />
+<xacro:property name="active1a_origin_rpy" value="${active1a['active1a_origin_rpy']}" />
+
+<xacro:property name="active1b" value="${load_yaml(active_properties_definition_file)}"/>
+<xacro:property name="active1b_name" value="${active1b['active1b_name']}" />
+<xacro:property name="active1b_origin_xyz" value="${active1b['active1b_origin_xyz']}" />
+<xacro:property name="active1b_origin_rpy" value="${active1b['active1b_origin_rpy']}" />
+
+<!-- ACTIVE JOINTS -->
+<xacro:property name="active1" value="${load_yaml(active_properties_definition_file)}"/>
+<xacro:property name="active1_name" value="${active1['active1_name']}" />
+<xacro:property name="active1_origin_xyz" value="${active1['active1_origin_xyz']}" />
+<xacro:property name="active1_origin_rpy" value="${active1['active1_origin_rpy']}" />
+
+<!-- PSEUDOJOINTS PARTS -->
+<xacro:property name="pseudo_modules_properties_definition_file" value="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/yamls/smm2dof/pseudos.yaml" />
+
+<xacro:property name="pseudo1a" value="${load_yaml(pseudo_modules_properties_definition_file)}"/>
+<xacro:property name="pseudo1a_name" value="${pseudo1a['pseudo1a_name']}" />
+<xacro:property name="pseudo1a_origin_xyz" value="${pseudo1a['pseudo1a_origin_xyz']}" />
+<xacro:property name="pseudo1a_origin_rpy" value="${pseudo1a['pseudo1a_origin_rpy']}" />
+
+<xacro:property name="pseudo1b" value="${load_yaml(pseudo_modules_properties_definition_file)}"/>
+<xacro:property name="pseudo1b_name" value="${pseudo1b['pseudo1b_name']}" />
+<xacro:property name="pseudo1b_origin_xyz" value="${pseudo1b['pseudo1b_origin_xyz']}" />
+<xacro:property name="pseudo1b_origin_rpy" value="${pseudo1b['pseudo1b_origin_rpy']}" />
+
+<xacro:property name="pseudo2a" value="${load_yaml(pseudo_modules_properties_definition_file)}"/>
+<xacro:property name="pseudo2a_name" value="${pseudo2a['pseudo2a_name']}" />
+<xacro:property name="pseudo2a_origin_xyz" value="${pseudo2a['pseudo2a_origin_xyz']}" />
+<xacro:property name="pseudo2a_origin_rpy" value="${pseudo2a['pseudo2a_origin_rpy']}" />
+
+<xacro:property name="pseudo2b" value="${load_yaml(pseudo_modules_properties_definition_file)}"/>
+<xacro:property name="pseudo2b_name" value="${pseudo2b['pseudo2b_name']}" />
+<xacro:property name="pseudo2b_origin_xyz" value="${pseudo2b['pseudo2b_origin_xyz']}" />
+<xacro:property name="pseudo2b_origin_rpy" value="${pseudo2b['pseudo2b_origin_rpy']}" />
+
+
+<!-- PSEUDOJOINTS -->
+<xacro:property name="pseudojoints_configuration_file" value="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/yamls/smm2dof/pseudojoints.yaml" />
+
+<xacro:property name="pseudo1" value="${load_yaml(pseudojoints_configuration_file)}"/>
+<xacro:property name="pseudo1_name" value="${pseudo1['pseudo1_name']}" />
+<xacro:property name="pseudo1_origin_xyz" value="${pseudo1['pseudo1_origin_xyz']}" />
+<xacro:property name="pseudo1_origin_rpy" value="${pseudo1['pseudo1_origin_rpy']}" />
+
+<xacro:property name="pseudo2" value="${load_yaml(pseudojoints_configuration_file)}"/>
+<xacro:property name="pseudo2_name" value="${pseudo2['pseudo1_name']}" />
+<xacro:property name="pseudo2_origin_xyz" value="${pseudo2['pseudo2_origin_xyz']}" />
+<xacro:property name="pseudo2_origin_rpy" value="${pseudo2['pseudo2_origin_rpy']}" />
+<!-- END - Include -->
+
+<!-- ROBOT DESCRIPTION-->
+<link name="world"/>
+
+<joint name="world__base_link" type="revolute">
+<origin rpy="0 0 0" xyz="0 0 0"/>
+<parent link="world"/>
+<child link="base_link"/>
+<axis xyz="0 0 1"/>
+<limit effort="55" lower="-2" upper="2" velocity="4.0841"/>
+<dynamics damping="0.5"/>
+</joint>
+
+<link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00205 0.00373 0.020774"/>
+      <mass value ="0.500" />
+      <inertia ixx="5.063e-004" ixy="2.773e-005" ixz="7.042e-007" iyy="5.387e-004" iyz="1.237e-006" izz="7.207e-004"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0.5" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/baselink/ovidius_smm_baselink.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 0.9"/>
+      </material>
+    </visual>
+</link>
+
+<!-- This joint is parameterized for SJ1:C01-->
+<xacro:synthetic_joint_name  synthetic_name="base_link__${pseudo1a_name}"  synthetic_origin_rpy="${synthetic1_origin_rpy}" synthetic_origin_xyz="${synthetic1_origin_xyz}" synthetic_parent="base_link" synthetic_child="${pseudo1a_name}" />
+
+<!-- Start building Pseudojoint 1 STATIC PART-->
+<xacro:pseudo_static_link_mesh name="${pseudo1a_name}" origin_xyz="${pseudo1a_origin_xyz}" origin_rpy="${pseudo1a_origin_rpy}"/>
+
+<!-- PSEUDO1 CONFIGURATION -->
+<xacro:pseudo_joint_name  pseudo_name="${pseudo1a_name}__${pseudo1b_name}"  pseudo_origin_rpy="${pseudo1_origin_rpy}" pseudo_origin_xyz="${pseudo1_origin_xyz}" pseudo_parent="${pseudo1a_name}" pseudo_child="${pseudo1b_name}" />
+
+<!-- Start building Pseudojoint 1 MOVING PART-->
+<xacro:pseudo_moving_link_mesh name="${pseudo1b_name}" origin_xyz="${pseudo1b_origin_xyz}" origin_rpy="${pseudo1b_origin_rpy}"/>
+
+<!-- This joint is parameterized for SJ2:C011-->
+<xacro:synthetic_joint_name  synthetic_name="${pseudo1b_name}__${pseudo2a_name}"  synthetic_origin_rpy="${synthetic2_origin_rpy}" synthetic_origin_xyz="${synthetic2_origin_xyz}" synthetic_parent="${pseudo1b_name}" synthetic_child="${pseudo2a_name}" />
+
+<!-- Start building Pseudojoint 2 STATIC PART-->
+<xacro:pseudo_static_link_mesh name="${pseudo2a_name}" origin_xyz="${pseudo2a_origin_xyz}" origin_rpy="${pseudo2a_origin_rpy}"/>
+
+<!-- PSEUDO2 CONFIGURATION -->
+<xacro:pseudo_joint_name  pseudo_name="${pseudo2a_name}__${pseudo2b_name}"  pseudo_origin_rpy="${pseudo2_origin_rpy}" pseudo_origin_xyz="${pseudo2_origin_xyz}" pseudo_parent="${pseudo2a_name}" pseudo_child="${pseudo2b_name}" />
+
+<!-- Start building Pseudojoint 2 MOVING PART-->
+<xacro:pseudo_moving_link_mesh name="${pseudo2b_name}" origin_xyz="${pseudo2b_origin_xyz}" origin_rpy="${pseudo2b_origin_rpy}"/>
+
+<!-- This fixed tf assembles active module of link to preceding pseudo-->
+<xacro:assembly_active_module2pseudo  active_assembly_name="${pseudo2b_name}__${active1a_name}"  active_assembly_origin_rpy="${active2pseudo1_origin_rpy}" active_assembly_origin_xyz="${active2pseudo1_origin_xyz}" active_assembly_parent="${pseudo2b_name}" active_assembly_child="${active1a_name}" />
+
+<!-- Adds Active Module STATIC PART-->
+<xacro:active_static_link_mesh name="${active1a_name}" origin_xyz="${active1a_origin_xyz}" origin_rpy="${active1a_origin_rpy}"/>
+
+<!-- Adds DXL Active joint -->
+<xacro:dxlPROp_joint active_name="${active1a_name}__${active1b_name}"  active_origin_rpy="${active1_origin_rpy}" active_origin_xyz="${active1_origin_xyz}" active_parent="${active1a_name}" active_child="${active1b_name}"/>
+
+<!-- Adds Active Module MOVING PART-->
+<xacro:active_moving_link_mesh name="${active1b_name}" origin_xyz="${active1b_origin_xyz}" origin_rpy="${active1b_origin_rpy}"/>
+
+<!-- Add TCP -->
+<joint name="${active1b_name}__TOOL" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.05 0"/>
+    <parent link="${active1b_name}"/>
+    <child link="TOOL"/>
+</joint>
+
+<link name="TOOL"/>
+
+</robot>

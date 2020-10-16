@@ -77,10 +77,10 @@
 <xacro:property name="pseudo_cnt" value="0" />
 <xacro:property name="last_pseudo_cnt" value="0" />
 
-<xacro:property name="pseudo1_angle" value="0"/>
-<xacro:property name="pseudo2_angle" value="0"/>
-<xacro:property name="pseudo3_angle" value="0"/>
-<xacro:property name="pseudo4_angle" value="0"/>
+<xacro:property name="pseudo1_angle" value="1"/>
+<xacro:property name="pseudo2_angle" value="-1"/>
+<xacro:property name="pseudo3_angle" value="1"/>
+<xacro:property name="pseudo4_angle" value="-1"/>
 
 <!-- ACTIVE2PSEUDOS FIXED TFs -->
 <xacro:property name="active2pseudo" value="${load_yaml(definitions_file)}"/>
@@ -149,7 +149,7 @@
 <!-- METAMORPHIC LINK 1: BODY "base_link" AND the first pseudo are ALWAYS fixed-->
 <link name="base_link">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.00205 0.00373 0.020774"/>
+      <origin rpy="0 0 0" xyz="0.00205 0.00373 0.015774"/>
       <mass value ="0.500" />
       <inertia ixx="5.063e-004" ixy="2.773e-005" ixz="7.042e-007" iyy="5.387e-004" iyz="1.237e-006" izz="7.207e-004"/>
     </inertial>
@@ -509,6 +509,16 @@
 
 	<!-- Adds Active Module MOVING PART-->
 	<xacro:active_moving_link_mesh name="${active_b_name}_${active_cnt}" origin_xyz="${active_b_origin_xyz}" origin_rpy="${active_b_origin_rpy}"/>
+
+	<!-- Add TCP as TOOL frame-->
+	<!-- Add TCP -->
+	<joint name="${active_b_name}_${active_cnt}__TOOL" type="fixed">
+	    <origin rpy="0 0 0" xyz="0 0.05 0"/>
+	    <parent link="${active_b_name}_${active_cnt}"/>
+	    <child link="TOOL"/>
+	</joint>
+
+	<link name="TOOL"/>
 
 </xacro:if>	
 

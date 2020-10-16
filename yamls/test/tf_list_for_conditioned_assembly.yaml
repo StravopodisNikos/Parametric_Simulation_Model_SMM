@@ -7,7 +7,7 @@ synthetic2_name: synthetic2 #pseudo_moving->pseudo_static_back
 #synthetic2_origin_xyz: -0.075 0.1444 0 # Px011 \in [-0.025~0.025]  Py011 fixed@ Pz011 fixed@
 ##synthetic2_origin_x: -0.075 #var \in [-0.075 ~ 0.025]
 synthetic2_origin_y: 0.1444 #ct
-synthetic2_origin_z: 0 #ct
+synthetic2_origin_z: -0.05 #ct
 #synthetic2_origin_rpy: 0 1.5708 0     # Rx011 fixed@ Ry011 \in [-1.5708,1.5708] Rz011 fixed@
 synthetic2_origin_r: 0 #ct
 ##synthetic2_origin_p: 1.5708 #var \in [-1.5708 ~ 1.5708]

@@ -1,0 +1,21 @@
+# assembly fixed joints
+active2pseudo1_name: active_assembly1
+active2pseudo1_origin_xyz: 0 0.1 0 
+active2pseudo1_origin_rpy: 0 1.5708 0 
+
+#active modules
+active1a_name: active_module1a
+active1a_origin_xyz: 0 0.071 -0.1425
+active1a_origin_rpy: -1.5708 0 0
+
+active1b_name: active_module1b
+active1b_origin_xyz: 0 0 -0.0176
+active1b_origin_rpy: 0 3.1416 0
+
+
+#active joints
+active1_name: active1
+active1_origin_xyz: 0 0.032 0    
+active1_origin_rpy: 0 0 0 
+
+
