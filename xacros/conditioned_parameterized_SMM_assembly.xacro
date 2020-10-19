@@ -22,7 +22,7 @@
 <xacro:property name="synthetic2_name" value="${synthetic2['synthetic2_name']}" />
 <!-- xacro:property name="synthetic2_origin_x" value="${synthetic2['synthetic2_origin_x']}" / -->
 <xacro:property name="synthetic2_origin_y" value="${synthetic2['synthetic2_origin_y']}" />
-<xacro:property name="synthetic2_origin_z" value="${synthetic2['synthetic2_origin_z']}" />
+<!--xacro:property name="synthetic2_origin_z" value="${synthetic2['synthetic2_origin_z']}" / -->
 <xacro:property name="synthetic2_origin_r" value="${synthetic2['synthetic2_origin_r']}" />
 <!-- xacro:property name="synthetic2_origin_p" value="${synthetic2['synthetic2_origin_p']}" / -->
 <xacro:property name="synthetic2_origin_ry" value="${synthetic2['synthetic2_origin_ry']}" />
@@ -40,14 +40,14 @@
 <xacro:property name="synthetic4_name" value="${synthetic4['synthetic4_name']}" />
 <!-- xacro:property name="synthetic4_origin_x" value="${synthetic4['synthetic4_origin_x']}" / -->
 <xacro:property name="synthetic4_origin_y" value="${synthetic4['synthetic4_origin_y']}" />
-<xacro:property name="synthetic4_origin_z" value="${synthetic4['synthetic4_origin_z']}" />
+<!--xacro:property name="synthetic4_origin_z" value="${synthetic4['synthetic4_origin_z']}" / -->
 <xacro:property name="synthetic4_origin_r" value="${synthetic4['synthetic4_origin_r']}" />
 <!-- xacro:property name="synthetic4_origin_p" value="${synthetic4['synthetic4_origin_p']}" /-->
 <xacro:property name="synthetic4_origin_ry" value="${synthetic4['synthetic4_origin_ry']}" />
 
 <xacro:property name="synthetic5" value="${load_yaml(definitions_file)}"/>
 <xacro:property name="synthetic5_name" value="${synthetic5['synthetic5_name']}" />
-<xacro:property name="synthetic5_origin_x" value="${synthetic5['synthetic5_origin_x']}" />
+<!--xacro:property name="synthetic5_origin_x" value="${synthetic5['synthetic5_origin_x']}" /-->
 <xacro:property name="synthetic5_origin_y" value="${synthetic5['synthetic5_origin_y']}" />
 <!--xacro:property name="synthetic5_origin_z" value="${synthetic5['synthetic5_origin_z']}" /-->
 <xacro:property name="synthetic5_origin_r" value="${synthetic5['synthetic5_origin_r']}" />
@@ -77,16 +77,19 @@
 <xacro:property name="pseudo_cnt" value="0" />
 <xacro:property name="last_pseudo_cnt" value="0" />
 
-<xacro:property name="pseudo1_angle" value="1"/>
-<xacro:property name="pseudo2_angle" value="-1"/>
-<xacro:property name="pseudo3_angle" value="1"/>
-<xacro:property name="pseudo4_angle" value="-1"/>
+<xacro:property name="pseudo1_angle" value="0"/>
+<xacro:property name="pseudo2_angle" value="0"/>
+<xacro:property name="pseudo3_angle" value="0"/>
+<xacro:property name="pseudo4_angle" value="0"/>
 
 <!-- ACTIVE2PSEUDOS FIXED TFs -->
 <xacro:property name="active2pseudo" value="${load_yaml(definitions_file)}"/>
 <xacro:property name="active2pseudo_name" value="${active2pseudo['active2pseudo_name']}" />
 <xacro:property name="active2pseudo_origin_xyz" value="${active2pseudo['active2pseudo_origin_xyz']}" />
-<xacro:property name="active2pseudo_origin_rpy" value="${active2pseudo['active2pseudo_origin_rpy']}" />
+<!--xacro:property name="active2pseudo_origin_rpy" value="${active2pseudo['active2pseudo_origin_rpy']}" /-->
+<xacro:property name="active2pseudo_origin_r" value="${active2pseudo['active2pseudo_origin_r']}" />
+<!--xacro:property name="active2pseudo_origin_p" value="${active2pseudo['active2pseudo__origin__p']}" /-->
+<xacro:property name="active2pseudo_origin_ry" value="${active2pseudo['active2pseudo_origin_ry']}" />
 
 <!-- ACTIVE MODULE PARTS -->
 <xacro:property name="active_a" value="${load_yaml(definitions_file)}"/>
@@ -122,14 +125,18 @@
 
 <xacro:property name="assembly_parameters" value="${load_yaml(ovidius_assembly_parameters_file)}"/>
 <xacro:property name="synthetic2_origin_x" value="${assembly_parameters['synthetic2_origin_x']}" />
+<xacro:property name="synthetic2_origin_z" value="${assembly_parameters['synthetic2_origin_z']}" />
 <xacro:property name="synthetic2_origin_p" value="${assembly_parameters['synthetic2_origin_p']}" />
 <xacro:property name="synthetic3_origin_x" value="${assembly_parameters['synthetic3_origin_x']}" />
 <xacro:property name="synthetic3_origin_z" value="${assembly_parameters['synthetic3_origin_z']}" />
 <xacro:property name="synthetic3_origin_p" value="${assembly_parameters['synthetic3_origin_p']}" />
 <xacro:property name="synthetic4_origin_x" value="${assembly_parameters['synthetic4_origin_x']}" />
+<xacro:property name="synthetic4_origin_z" value="${assembly_parameters['synthetic4_origin_z']}" />
 <xacro:property name="synthetic4_origin_p" value="${assembly_parameters['synthetic4_origin_p']}" />
+<xacro:property name="synthetic5_origin_x" value="${assembly_parameters['synthetic5_origin_x']}" />
 <xacro:property name="synthetic5_origin_z" value="${assembly_parameters['synthetic5_origin_z']}" />
 <xacro:property name="synthetic5_origin_p" value="${assembly_parameters['synthetic5_origin_p']}" />
+<xacro:property name="active2pseudo_origin_p" value="${assembly_parameters['active2pseudo_origin_p']}" />
 
 <!-- III.1	ROBOT to be generated to URDF model-->
 <!-- ROBOT DESCRIPTION-->
@@ -254,7 +261,7 @@
 
 	<xacro:property name="active_cnt" value="1" />
 
-	<xacro:assembly_active_module2pseudo  active_assembly_name="${pseudo_b_name}_${pseudo_cnt}__${active_a_name}_${active_cnt}"  active_assembly_origin_rpy="${active2pseudo_origin_rpy}" active_assembly_origin_xyz="${active2pseudo_origin_xyz}" active_assembly_parent="${pseudo_b_name}_${pseudo_cnt}" active_assembly_child="${active_a_name}_${active_cnt}" />
+	<xacro:assembly_active_module2pseudo  active_assembly_name="${pseudo_b_name}_${pseudo_cnt}__${active_a_name}_${active_cnt}"  active_assembly_origin_rpy="${active2pseudo_origin_r} ${active2pseudo_origin_p} ${active2pseudo_origin_ry}" active_assembly_origin_xyz="${active2pseudo_origin_xyz}" active_assembly_parent="${pseudo_b_name}_${pseudo_cnt}" active_assembly_child="${active_a_name}_${active_cnt}" />
 
 	<!-- Adds Active Module STATIC PART-->
 	<xacro:active_static_link_mesh name="${active_a_name}_${active_cnt}" origin_xyz="${active_a_origin_xyz}" origin_rpy="${active_a_origin_rpy}"/>
@@ -499,7 +506,7 @@
 
 	<xacro:property name="active_cnt" value="2" />
 
-	<xacro:assembly_active_module2pseudo  active_assembly_name="${pseudo_b_name}_${pseudo_cnt}__${active_a_name}_${active_cnt}"  active_assembly_origin_rpy="${active2pseudo_origin_rpy}" active_assembly_origin_xyz="${active2pseudo_origin_xyz}" active_assembly_parent="${pseudo_b_name}_${pseudo_cnt}" active_assembly_child="${active_a_name}_${active_cnt}" />
+	<xacro:assembly_active_module2pseudo  active_assembly_name="${pseudo_b_name}_${pseudo_cnt}__${active_a_name}_${active_cnt}"  active_assembly_origin_rpy="${active2pseudo_origin_r} ${active2pseudo_origin_p} ${active2pseudo_origin_ry}" active_assembly_origin_xyz="${active2pseudo_origin_xyz}" active_assembly_parent="${pseudo_b_name}_${pseudo_cnt}" active_assembly_child="${active_a_name}_${active_cnt}" />
 
 	<!-- Adds Active Module STATIC PART-->
 	<xacro:active_static_link_mesh name="${active_a_name}_${active_cnt}" origin_xyz="${active_a_origin_xyz}" origin_rpy="${active_a_origin_rpy}"/>

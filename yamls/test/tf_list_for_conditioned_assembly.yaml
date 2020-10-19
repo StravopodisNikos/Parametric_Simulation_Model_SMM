@@ -7,7 +7,7 @@ synthetic2_name: synthetic2 #pseudo_moving->pseudo_static_back
 #synthetic2_origin_xyz: -0.075 0.1444 0 # Px011 \in [-0.025~0.025]  Py011 fixed@ Pz011 fixed@
 ##synthetic2_origin_x: -0.075 #var \in [-0.075 ~ 0.025]
 synthetic2_origin_y: 0.1444 #ct
-synthetic2_origin_z: -0.05 #ct
+#synthetic2_origin_z: -0.05 #ct
 #synthetic2_origin_rpy: 0 1.5708 0     # Rx011 fixed@ Ry011 \in [-1.5708,1.5708] Rz011 fixed@
 synthetic2_origin_r: 0 #ct
 ##synthetic2_origin_p: 1.5708 #var \in [-1.5708 ~ 1.5708]
@@ -27,7 +27,7 @@ synthetic4_name: synthetic4 #pseudo_moving->pseudo_static_under
 #synthetic4_origin_xyz: 0 0.101 0 # Rx01 Ry01 Rz01
 ##synthetic4_origin_x: 0 #var \in [-0.025 ~ 0.025]
 synthetic4_origin_y: 0.101 #ct
-synthetic4_origin_z: 0 #ct
+#synthetic4_origin_z: 0 #ct
 #synthetic4_origin_rpy: -1.5708 1.5708 0     # Px01 Py01 Pz01
 synthetic4_origin_r: -1.5708 #ct
 ##synthetic4_origin_p: 1.5708 #var \in [-1.5708 ~ 1.5708]
@@ -35,7 +35,7 @@ synthetic4_origin_ry: 0 #ct
 
 synthetic5_name: synthetic5 # dxl_frame->pseudo_static_under
 #synthetic5_origin_xyz: 0 0.0525 -0.015 
-synthetic5_origin_x: 0 #ct
+#synthetic5_origin_x: 0 #ct
 synthetic5_origin_y: 0.0525 #ct
 #synthetic5_origin_z: -0.015 #var \in [-0.015~0.025]
 #synthetic5_origin_rpy: -1.5708 0 0  
@@ -62,7 +62,10 @@ pseudo_origin_y: 0
 # assembly fixed joints
 active2pseudo_name: active_assembly
 active2pseudo_origin_xyz: 0 0.1 0 
-active2pseudo_origin_rpy: 0 1.5708 0 
+#active2pseudo_origin_rpy: 0 1.5708 0
+active2pseudo_origin_r: 0
+#active2pseudo__origin_p: 1.5708
+active2pseudo_origin_ry: 0
 
 #active modules
 active_a_name: active_module_a
@@ -70,10 +73,10 @@ active_a_origin_xyz: 0 0.071 -0.1425
 active_a_origin_rpy: -1.5708 0 0
 
 active_b_name: active_module_b
-active_b_origin_xyz: 0 0 -0.0176
-active_b_origin_rpy: 0 3.1416 0
+active_b_origin_xyz: 0.0175 0 0 #changed x from default value:0 #changed z from default value:-0.0176
+active_b_origin_rpy: 0 1.5708 0 #changed pitch from default value:3.1416
 
 #active joints
 active_name: active
 active_origin_xyz: 0 0.032 0    
-active_origin_rpy: 0 0 0 
+active_origin_rpy: 0 1.5708 0 #changed from default value:0

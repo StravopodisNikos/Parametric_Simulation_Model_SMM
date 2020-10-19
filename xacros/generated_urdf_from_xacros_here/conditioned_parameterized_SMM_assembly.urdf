@@ -60,7 +60,7 @@
     </visual>
   </link>
   <joint name="pseudo_a_1__pseudo_b_1" type="fixed">
-    <origin rpy="2.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
     <parent link="pseudo_a_1"/>
     <child link="pseudo_b_1"/>
   </joint>
@@ -82,7 +82,7 @@
   </link>
   <!-- NO additional condition is checked for the first pseudo of the first link! Moves on to check if 2nd pseudo exists-->
   <joint name="pseudo_b_1__pseudo_a_2" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.025 0.1444 -0.05"/>
+    <origin rpy="0 0 0" xyz="-0.025 0.1444 0.01"/>
     <parent link="pseudo_b_1"/>
     <child link="pseudo_a_2"/>
   </joint>
@@ -103,7 +103,7 @@
     </visual>
   </link>
   <joint name="pseudo_a_2__pseudo_b_2" type="fixed">
-    <origin rpy="0.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
     <parent link="pseudo_a_2"/>
     <child link="pseudo_b_2"/>
   </joint>
@@ -125,7 +125,7 @@
   </link>
   <!-- FINISHED FIRST METAMORPHIC LINK -->
   <joint name="pseudo_b_2__active_module_a_1" type="fixed">
-    <origin rpy="0 1.5708 0" xyz="0 0.1 0"/>
+    <origin rpy="0 0 0" xyz="0 0.1 0"/>
     <parent link="pseudo_b_2"/>
     <child link="active_module_a_1"/>
   </joint>
@@ -146,10 +146,10 @@
     </visual>
   </link>
   <joint name="active_module_a_1__active_module_b_1" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0.032 0"/>
+    <origin rpy="0 1.5708 0" xyz="0 0.032 0"/>
     <parent link="active_module_a_1"/>
     <child link="active_module_b_1"/>
-    <axis xyz="0 0 1"/>
+    <axis xyz="1 0 0"/>
     <limit effort="55" lower="-2" upper="2" velocity="4.0841"/>
     <dynamics damping="0.5"/>
   </joint>
@@ -160,7 +160,7 @@
       <inertia ixx="3.103e-04" ixy="-3.374e-13" ixz="1.202e-12" iyy="3.187e-04" iyz="8.958e-06" izz="5.995e-05"/>
     </inertial>
     <visual>
-      <origin rpy="0 3.1416 0" xyz="0 0 -0.0176"/>
+      <origin rpy="0 1.5708 0" xyz="0.0175 0 0"/>
       <geometry>
         <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_moving.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -171,7 +171,7 @@
   </link>
   <!--  First case is this meta link had pseudo in first string parameter-->
   <joint name="active_module_b_1__pseudo_a_3" type="fixed">
-    <origin rpy="-1.5708 0 0" xyz="0 0.0525 0"/>
+    <origin rpy="-1.5708 0 0" xyz="0.01 0.0525 0"/>
     <parent link="active_module_b_1"/>
     <child link="pseudo_a_3"/>
   </joint>
@@ -192,7 +192,7 @@
     </visual>
   </link>
   <joint name="pseudo_a_3__pseudo_b_3" type="fixed">
-    <origin rpy="2.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
     <parent link="pseudo_a_3"/>
     <child link="pseudo_b_3"/>
   </joint>
@@ -213,7 +213,7 @@
     </visual>
   </link>
   <joint name="pseudo_b_3__pseudo_a_4" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.025 0.1444 -0.05"/>
+    <origin rpy="0 0 0" xyz="-0.025 0.1444 0.01"/>
     <parent link="pseudo_b_3"/>
     <child link="pseudo_a_4"/>
   </joint>
@@ -234,7 +234,7 @@
     </visual>
   </link>
   <joint name="pseudo_a_4__pseudo_b_4" type="fixed">
-    <origin rpy="0.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
     <parent link="pseudo_a_4"/>
     <child link="pseudo_b_4"/>
   </joint>
@@ -255,7 +255,7 @@
     </visual>
   </link>
   <joint name="pseudo_b_4__active_module_a_2" type="fixed">
-    <origin rpy="0 1.5708 0" xyz="0 0.1 0"/>
+    <origin rpy="0 0 0" xyz="0 0.1 0"/>
     <parent link="pseudo_b_4"/>
     <child link="active_module_a_2"/>
   </joint>
@@ -276,10 +276,10 @@
     </visual>
   </link>
   <joint name="active_module_a_2__active_module_b_2" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0.032 0"/>
+    <origin rpy="0 1.5708 0" xyz="0 0.032 0"/>
     <parent link="active_module_a_2"/>
     <child link="active_module_b_2"/>
-    <axis xyz="0 0 1"/>
+    <axis xyz="1 0 0"/>
     <limit effort="55" lower="-2" upper="2" velocity="4.0841"/>
     <dynamics damping="0.5"/>
   </joint>
@@ -290,7 +290,7 @@
       <inertia ixx="3.103e-04" ixy="-3.374e-13" ixz="1.202e-12" iyy="3.187e-04" iyz="8.958e-06" izz="5.995e-05"/>
     </inertial>
     <visual>
-      <origin rpy="0 3.1416 0" xyz="0 0 -0.0176"/>
+      <origin rpy="0 1.5708 0" xyz="0.0175 0 0"/>
       <geometry>
         <mesh filename="/home/nikos/PhD/projects/Parametric_Simulation_Model_SMM/Active/active_module_moving.stl" scale="0.001 0.001 0.001"/>
       </geometry>
