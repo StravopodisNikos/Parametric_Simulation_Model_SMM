@@ -589,6 +589,11 @@
 <!-- #############################################################################################################################################-->
 
 <!-- STARTED 3RD METAMORPHIC LINK -->
+<xacro:property name="meta_cnt" value="3" />
+<xacro:property name="current_metalink" value="metalink_${meta_cnt}" />
+
+<xacro:property name="pseudo1_index" value="5" />
+<xacro:property name="pseudo2_index" value="6" />
 
 <!-- FINISHED 3RD METAMORPHIC LINK -->
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- This is the xacro file for metalinks 3-4-5 for 6dof assembly. Builds a metamorphic link with either 1 or 2 pseudos, given the assembly rules for matlab ga and the 
+     connectivity specified for passive modules of the metamorphic chain -->
+<!-- From overview: j-> pseudo_index -->
+
+<xacro:macro name="metalink_assembly" params="current_metalink pseudo1_string pseudo2_string">
+
+	<xacro:unless value="${ ${pseudo1_string} == 9}"> <!--  Case A is this meta link had pseudo in first string parameter => ONLY CASE BECAUSE IN GA THE FIRST PSEUDO MUST ALWAYS EXIST!-->
+				
+		<xacro:property name="metalink_pseudo1" value="${current_metalink}_pseudo1" />
+
+		<xacro:if value="${ ${pseudo1_string} == 31 }"> <!-- Case A.1.a -->
+
+			<!-- naming must change! -->
+			<xacro:synthetic_joint_name  synthetic_name="${pseudo_b_name}_${last_pseudo_cnt}__${pseudo_a_name}_${pseudo_cnt}"  synthetic_origin_rpy="${synthetic2_origin_r} ${synthetic_origin_xzp_3_p} ${synthetic2_origin_ry}" synthetic_origin_xyz="${synthetic_origin_xzp_3_x} ${synthetic2_origin_y} ${synthetic_origin_xzp_3_z}" synthetic_parent="${pseudo_b_name}_${last_pseudo_cnt}" synthetic_child="${pseudo_a_name}_${pseudo_cnt}" />	
+
+			<!-- Start building Pseudojoint 2 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${pseudo_a_name}_${pseudo_cnt}" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${pseudo_a_name}_${pseudo_cnt}__${pseudo_b_name}_${pseudo_cnt}"  pseudo_origin_rpy="${pseudo_origin_r+pseudo4_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${pseudo_a_name}_${pseudo_cnt}" pseudo_child="${pseudo_b_name}_${pseudo_cnt}" />
+
+			<!-- Start building Pseudojoint 2 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${pseudo_b_name}_${pseudo_cnt}" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>	
+
+		</xacro:if>
+		
+		<xacro:if value="${ ${pseudo1_string} == 21}"> <!-- Case A.1.b -->
+		</xacro:if>
+
+		<xacro:unless value="${ ${pseudo2_string} == 9}"> <!-- Case A.1.c : and a 2nd pseudo exists-->
+			<xacro:property name="metalink_pseudo2" value="${current_metalink}_pseudo2" />
+			
+			<xacro:if value="${ ${pseudo2_string} == 31}"> <!-- Case A.1.c.1 -->
+			</xacro:if>
+
+			<xacro:if value="${ ${pseudo2_string} == 21}"> <!-- Case A.1.c.2 -->
+			</xacro:if>
+
+		</xacro:unless>
+
+		<xacro:if value="${ ${pseudo2_string} == 9}"> <!-- Case A.1.d : if a 2nd pseudo doesn't exist-->
+
+		// Add nothing here	
+
+		</xacro:if>
+		
+	</xacro:unless>	<!--  Case A - end-->
+
+</xacro:macro>
+
+</robot>	

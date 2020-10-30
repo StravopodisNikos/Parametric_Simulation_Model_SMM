@@ -1,7 +1,12 @@
 <!-- CASES FOR METAMORPHIC LINK FOR DOF HIGHER THAN 3-->
+<!-- This will be modified to a big boy xacro and added to the 6dof code -->
 
-<xacro:unless value="${sj == 9}"> <!--  Case A is this meta link had pseudo in first string parameter-->
+<xacro:unless value="${sj == 9}"> <!--  Case A is this meta link had pseudo in first string parameter => ONLY CASE BECAUSE IN GA THE FIRST PSEUDO MUST ALWAYS EXIST!-->
 	
+	// Give naming
+	// metalink_i
+	// metalink_i_pseudo1
+
 	<xacro:if value="${s_j == 31}"> <!-- Case A.1.a -->
 	</xacro:if>
 	
@@ -9,7 +14,8 @@
 	</xacro:if>
 
 	<xacro:unless value="${s_j+1 == 9}"> <!-- Case A.1.c : and a 2nd pseudo exists-->
-
+		// metalink_i_pseudo2
+		
 		<xacro:if value="${s_j+1 == 31}"> <!-- Case A.1.c.1 -->
 		</xacro:if>
 
@@ -17,5 +23,11 @@
 		</xacro:if>
 
 	</xacro:unless>
+
+	<xacro:if value="${s_j+1 == 9}"> <!-- Case A.1.d : if a 2nd pseudo doesn't exist-->
+
+	// Add nothing here	
+
+	</xacro:if>
 	
 </xacro:unless>	<!--  Case A - end-->
