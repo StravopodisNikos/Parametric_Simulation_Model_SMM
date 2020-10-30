@@ -1,0 +1,21 @@
+<!-- CASES FOR METAMORPHIC LINK FOR DOF HIGHER THAN 3-->
+
+<xacro:unless value="${sj == 9}"> <!--  Case A is this meta link had pseudo in first string parameter-->
+	
+	<xacro:if value="${s_j == 31}"> <!-- Case A.1.a -->
+	</xacro:if>
+	
+	<xacro:if value="${s_j == 21}"> <!-- Case A.1.b -->
+	</xacro:if>
+
+	<xacro:unless value="${s_j+1 == 9}"> <!-- Case A.1.c : and a 2nd pseudo exists-->
+
+		<xacro:if value="${s_j+1 == 31}"> <!-- Case A.1.c.1 -->
+		</xacro:if>
+
+		<xacro:if value="${s_j+1 == 21}"> <!-- Case A.1.c.2 -->
+		</xacro:if>
+
+	</xacro:unless>
+	
+</xacro:unless>	<!--  Case A - end-->

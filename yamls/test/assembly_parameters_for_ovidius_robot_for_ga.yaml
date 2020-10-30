@@ -1,0 +1,30 @@
+# for conditioned_parameterized_SMM_assembly_for_ga.xacro
+
+# Here the values x4-12 of the chromosome are inserted by user when ga has finished. 
+#Here no index is used to generate each synthetic_joint_tf, but each set is passed to the appropriate source code line by user
+
+#synthetic_origin_xzp is a 3x3 array for 3 DoF SMM
+#active2pseudo_origin_p is a 1x3 vector for 3 DoF SMM with element(1) being a dummy value since first active motor has no assembly parameter
+
+# The first index must always agree with the pseudo_assembly_index commented in the above line in the corresponding xacro file!
+#synthetic_origin_xzp_1_123: -> x(4-6):Here syn4(under 21) or syn2(back31) are passed
+synthetic_origin_xzp_1_x: 0
+synthetic_origin_xzp_1_z: 0
+synthetic_origin_xzp_1_p: 0
+#---
+#synthetic_origin_xzp_2_123: -> x(7-9)
+synthetic_origin_xzp_2_x: -0.0380
+synthetic_origin_xzp_2_z: -0.0244
+synthetic_origin_xzp_2_p: -0.0082
+#---
+#synthetic_origin_xzp_3_123: -> x(10-12)
+synthetic_origin_xzp_3_x: -0.0058
+synthetic_origin_xzp_3_z: 0.0323
+synthetic_origin_xzp_3_p: 0.0262
+#---
+# The second index must always agree with the active_assembly_index commented in the above line in the corresponding xacro file!
+#active2pseudo_origin_p_4_123: -> x(13-14)
+active2pseudo_origin_p_4_1: 0
+active2pseudo_origin_p_4_2: 1.5708
+active2pseudo_origin_p_4_3: 1.5708
+#---

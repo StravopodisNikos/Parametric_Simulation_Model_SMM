@@ -1,0 +1,74 @@
+<!-- STARTED METAMORPHIC LINK WITH PSEUDOS j & j+1 -->
+
+<xacro:unless value="${s_j == 9}"> <!--  Case A - start : this meta link had pseudo in first string parameter -->
+
+	<xacro:unless value="${s_j-1 == 9 or s_j-2 ==9}">  <!--  Case A.1 - start : {All} previous links had 2 pseudos-->
+	
+		// here determine last_pseudo_cnt, pseudo_cnt
+
+		<xacro:if value="${s_j == 31}"> <!-- Case A.1.a -->
+		</xacro:if>
+		
+		<xacro:if value="${s_j == 21}"> <!-- Case A.1.b -->
+		</xacro:if>
+
+		<xacro:unless value="${s_j+1 == 9}"> <!-- Case A.1.c : and a 2nd pseudo exists-->
+
+			<xacro:if value="${s_j+1 == 31}"> <!-- Case A.1.c.1 -->
+			</xacro:if>
+	
+			<xacro:if value="${s_j+1 == 21}"> <!-- Case A.1.c.2 -->
+			</xacro:if>
+
+		</xacro:unless>
+			
+	</xacro:unless> <!--  Case A.1 - end-->
+
+	<xacro:if value="${s_j-1 == 9 or s_j-2 ==9}">  <!--  Case A.2 - start : {All} previous links had only 1 pseudos-->
+
+	// here determine last_pseudo_cnt, pseudo_cnt
+
+		<xacro:if value="${s_j == 31}"> <!-- Case A.1.c.1 -->
+		</xacro:if>
+
+		<xacro:if value="${s_j == 21}"> <!-- Case A.1.c.2 -->
+		</xacro:if>
+
+		<xacro:unless value="${s_j+1 == 9}"> <!-- Case A.1.c : and a 2nd pseudo exists-->
+
+			<xacro:if value="${s_j+1 == 31}"> <!-- Case A.1.c.1 -->
+			</xacro:if>
+	
+			<xacro:if value="${s_j+1 == 21}"> <!-- Case A.1.c.2 -->
+			</xacro:if>
+
+		</xacro:unless>
+
+	</xacro:if> <!--  Case A.2 - end-->
+
+</xacro:unless> <!--  Case A - end-->
+
+<xacro:if value="${s_j == 9}"> <!--  Case Β - start : this meta link had ΝΟ pseudo in first string parameter -->
+
+	<xacro:unless value="${s_j-1 == 9 or s_j-2 ==9}">  <!--  Case B.1 - start : {All} previous links had 2 pseudos-->
+		
+		// here determine last_pseudo_cnt, pseudo_cnt
+		<xacro:if value="${s_j+1 == 31}"> <!-- Case A.1.c.1 -->
+		</xacro:if>
+
+		<xacro:if value="${s_j+1 == 21}"> <!-- Case A.1.c.2 -->
+		</xacro:if>
+
+	</xacro:unless> <!--  Case B.1 - end-->
+
+	<xacro:if value="${s_j-1 == 9 or s_j-2 ==9}">  <!--  Case B.2 - start : {All} previous links had only 1 pseudos-->
+
+		<xacro:if value="${s_j+1 == 31}"> <!-- Case A.1.c.1 -->
+		</xacro:if>
+
+		<xacro:if value="${s_j+1 == 21}"> <!-- Case A.1.c.2 -->
+		</xacro:if>
+
+	</xacro:if> <!--  Case B.2 - end-->
+
+</xacro:if>	<!--  Case B - end-->
