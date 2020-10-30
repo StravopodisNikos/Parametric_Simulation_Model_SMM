@@ -6,12 +6,12 @@ s4: 0
 s5: 31
 s6: 21  #cannot be 9 if s5 is 9
 s7: 0
-s8: xx
-s9: xx  
+s8: 31
+s9: 9  
 s10: 0
-s11: xx
-s12: xx
+s11: 21
+s12: 31
 s13: 0
-s14: xx
-s15: xx
+s14: 21
+s15: 31
 s16: 0

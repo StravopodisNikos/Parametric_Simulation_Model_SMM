@@ -1,4 +1,6 @@
-<!-- STARTED METAMORPHIC LINK WITH PSEUDOS j & j+1 -->
+<!-- STARTED METAMORPHIC LINK WITH PSEUDOS j & j+1. These are the cases written for 3dof. For 6dof assembly a more 
+     simplified version is implemented and can be found @ conditioned_parameterized_SMM_assembly_6dof_for_ga.xacro
+     @ Section "STARTED 3RD METAMORPHIC LINK" -->
 
 <xacro:unless value="${s_j == 9}"> <!--  Case A - start : this meta link had pseudo in first string parameter -->
 
