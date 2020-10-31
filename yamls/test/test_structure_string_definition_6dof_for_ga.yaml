@@ -1,17 +1,17 @@
 #structure string definition
 s1: 0   # default
-s2: 21  #cannot be 31
-s3: 31  #cannot be 9 if s2 is 9 #cannot be 31 if s2 is 9
-s4: 0
-s5: 31
-s6: 21  #cannot be 9 if s5 is 9
-s7: 0
-s8: 31
+s2: 21  # default
+s3: 31  
+s4: 0   # default
+s5: 31  # no 9 accepted
+s6: 21  
+s7: 0   # default
+s8: 31  # no 9 accepted
 s9: 9  
-s10: 0
-s11: 21
-s12: 31
-s13: 0
-s14: 21
+s10: 0  # default
+s11: 31 # no 9 accepted
+s12: 9
+s13: 0  # default
+s14: 21 # no 9 accepted
 s15: 31
-s16: 0
+s16: 0  # default

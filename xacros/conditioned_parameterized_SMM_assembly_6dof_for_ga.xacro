@@ -569,13 +569,9 @@
 <!-- ADD THIRD ROBOT JOINT->SECOND DYNAMIXEL JOINT -> END -->
 
 <!-- #############################################################################################################################################-->
-<!-- FOR MORE THAN 3 DOF NO CASES CAN BE EVALUATED AS BEFORE. NO INDEX IS USED TO ENUMERATE LINKS AND JOINTS. ALL PSEUDOS ADDED WILL NEED TO BE GIVEN
-     A VALUE HERE. WE WILL KNOW FROM THE MATLAB RESULTS WHICH PSEUDO-ANGLES SHOULD BE GIVEN A NUMBER AND WHICH NOT. ONLY CASES CONSIDERED CHECK FOR:
-     1. IF METALINK HAS 1 OR 2 PSEUDOS
-     2. THE CONNECTIVITY OF THE PSEUDOS INSIDE THE METALINK
-     HOW NAMES ARE GIVEN:
-
-     THE NEW OVERVIEW IS PRESENTED IN FILE cases_overview_6dof_for_ga.xacro -->
+<!-- FOR MORE THAN 3 DOF NO CASES CAN BE EVALUATED AS BEFORE. NO INDEX IS USED TO ENUMERATE LINKS AND JOINTS. INDEXES ARE SPECIFIED FOR THE PRE-
+     DETERMINED POSITION OF THE GA CHROMOSOME/SERIAL STRUCTURE CHAIN. WHEN IN A POSITION NO PSEUDO IS ADDED THEN THE PSEUDOANGLE AND THE ASSEMBLY
+     PARAMETERS WILL HAVE NO EFFECT. THE NEW OVERVIEW IS PRESENTED IN FILE cases_overview_6dof_for_ga.xacro -->
 <!-- #############################################################################################################################################-->
 
 <!-- STARTED 3RD METAMORPHIC LINK -->
@@ -661,8 +657,7 @@
 
 		<xacro:if value="${ s9 == 9}"> <!-- Case A.1.d : if a 2nd pseudo doesn't exist-->
 
-		// Add nothing here - only set naming connection with next active
-		<xacro:property name="last_body_assembled" value="${metalink_pseudo1}_b" />
+			<xacro:property name="last_body_assembled" value="${metalink_pseudo1}_b" />
 
 		</xacro:if>
 		
@@ -691,20 +686,226 @@
 <!-- ADD 4TH ROBOT JOINT->SECOND DYNAMIXEL JOINT -> END -->
 
 <!-- STARTED 4TH METAMORPHIC LINK -->
+<xacro:property name="meta_cnt" value="4" />
+<xacro:property name="current_metalink" value="metalink_${meta_cnt}" />
+
+<xacro:property name="pseudo1_index" value="7" /> <!-- This is only used to define the default pseudo index: this is the pseudoangle index given in pseudo_origin_rpy for each pseudo -->
+<xacro:property name="pseudo2_index" value="8" />
+
+<xacro:unless value="${ s11 == 9}"> <!--  Case A is this meta link had pseudo in first string parameter => ONLY CASE BECAUSE IN GA THE FIRST PSEUDO MUST ALWAYS EXIST!-->
+				
+		<xacro:property name="metalink_pseudo1" value="${current_metalink}_pseudo1" />
+
+		<xacro:if value="${ s11 == 31 }"> <!-- Case A.1.a -->
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${metalink_pseudo1}_a"  synthetic_origin_rpy="${synthetic3_origin_r} ${synthetic_origin_xzp_6_p} ${synthetic3_origin_ry}" synthetic_origin_xyz="${synthetic_origin_xzp_6_x} ${synthetic3_origin_y} ${synthetic_origin_xzp_6_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${metalink_pseudo1}_a" />	
+
+			<!-- Start building Pseudojoint 2 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${metalink_pseudo1}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo1}_a__${metalink_pseudo1}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo7_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo1}_a" pseudo_child="${metalink_pseudo1}_b" />
+
+			<!-- Start building Pseudojoint 2 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${metalink_pseudo1}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>	
+
+		</xacro:if>
+		
+		<xacro:if value="${ s11 == 21}"> <!-- Case A.1.b -->
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${metalink_pseudo1}_a"  synthetic_origin_rpy="${synthetic5_origin_r} ${synthetic_origin_xzp_6_p} ${synthetic5_origin_ry}" synthetic_origin_xyz="${synthetic_origin_xzp_6_x} ${synthetic5_origin_y} ${synthetic_origin_xzp_6_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${metalink_pseudo1}_a" />	
+
+			<!-- Start building Pseudojoint 2 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${metalink_pseudo1}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo1}_a__${metalink_pseudo1}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo7_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo1}_a" pseudo_child="${metalink_pseudo1}_b" />
+
+			<!-- Start building Pseudojoint 2 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${metalink_pseudo1}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>
+
+		</xacro:if>
+
+		<xacro:unless value="${ s12 == 9}"> <!-- Case A.1.c : and a 2nd pseudo exists-->
+
+			<xacro:property name="metalink_pseudo2" value="${current_metalink}_pseudo2" />
+			
+			<xacro:if value="${ s12 == 21}"> <!-- Case A.1.c.1 -->
+
+				<xacro:synthetic_joint_name  synthetic_name="${metalink_pseudo1}_b__${metalink_pseudo2}_a"  synthetic_origin_rpy="${synthetic4_origin_r} ${synthetic_origin_xzp_7_p} ${synthetic4_origin_ry}" synthetic_origin_xyz="${synthetic_origin_xzp_7_x} ${synthetic4_origin_y} ${synthetic_origin_xzp_7_z}" synthetic_parent="${metalink_pseudo1}_b" synthetic_child="${metalink_pseudo2}_a" />	
+
+				<!-- Start building Pseudojoint 2 STATIC PART-->
+				<xacro:pseudo_static_link_mesh name="${metalink_pseudo2}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+				<!-- PSEUDO2 CONFIGURATION -->
+				<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo2}_a__${metalink_pseudo2}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo8_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo2}_a" pseudo_child="${metalink_pseudo2}_b" />
+
+				<!-- Start building Pseudojoint 2 MOVING PART-->
+				<xacro:pseudo_moving_link_mesh name="${metalink_pseudo2}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>	
+
+				<xacro:property name="last_body_assembled" value="${metalink_pseudo2}_b" />
+
+			</xacro:if>
+
+			<xacro:if value="${ s12 == 31}"> <!-- Case A.1.c.2 -->
+
+				<xacro:synthetic_joint_name  synthetic_name="${metalink_pseudo1}_b__${metalink_pseudo2}_a"  synthetic_origin_rpy="${synthetic2_origin_r} ${synthetic_origin_xzp_7_p} ${synthetic2_origin_ry}" synthetic_origin_xyz="${synthetic_origin_xzp_7_x} ${synthetic2_origin_y} ${synthetic_origin_xzp_7_z}" synthetic_parent="${metalink_pseudo1}_b" synthetic_child="${metalink_pseudo2}_a" />	
+
+				<!-- Start building Pseudojoint 2 STATIC PART-->
+				<xacro:pseudo_static_link_mesh name="${metalink_pseudo2}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+				<!-- PSEUDO2 CONFIGURATION -->
+				<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo2}_a__${metalink_pseudo2}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo8_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo2}_a" pseudo_child="${metalink_pseudo2}_b" />
+
+				<!-- Start building Pseudojoint 2 MOVING PART-->
+				<xacro:pseudo_moving_link_mesh name="${metalink_pseudo2}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>
+
+				<xacro:property name="last_body_assembled" value="${metalink_pseudo2}_b" />
+
+			</xacro:if>
+
+		</xacro:unless>
+
+		<xacro:if value="${ s12 == 9}"> <!-- Case A.1.d : if a 2nd pseudo doesn't exist-->
+
+			<xacro:property name="last_body_assembled" value="${metalink_pseudo1}_b" />
+
+		</xacro:if>
+		
+	</xacro:unless>	<!--  Case A - end-->
 <!-- FINISHED 4TH METAMORPHIC LINK -->
 
-<!-- ADD 5TH ROBOT JOINT->SECOND DYNAMIXEL JOINT -> START -->
-<!-- ADD 5TH ROBOT JOINT->SECOND DYNAMIXEL JOINT -> END -->
+<!-- ADD 5TH ROBOT JOINT->4TH DYNAMIXEL JOINT -> START -->
+<xacro:if value="${s13 == 0}">
+
+	<xacro:property name="active_cnt" value="4" />
+
+	<!-- MATLAB: Add active DXL: active_assembly_index = 3-->
+	<xacro:assembly_active_module2pseudo  active_assembly_name="${last_body_assembled}__${active_a_name}_${active_cnt}"  active_assembly_origin_rpy="${active2pseudo_origin_r} ${active2pseudo_origin_p_11_2} ${active2pseudo_origin_ry}" active_assembly_origin_xyz="${active2pseudo_origin_xyz}" active_assembly_parent="${last_body_assembled}" active_assembly_child="${active_a_name}_${active_cnt}" />
+
+	<!-- Adds Active Module STATIC PART-->
+	<xacro:active_static_link_mesh name="${active_a_name}_${active_cnt}" origin_xyz="${active_a_origin_xyz}" origin_rpy="${active_a_origin_rpy}"/>
+
+	<!-- Adds DXL Active joint -->
+	<xacro:dxlPROp_joint active_name="${active_a_name}_${active_cnt}__${active_b_name}_${active_cnt}"  active_origin_rpy="${active_origin_rpy}" active_origin_xyz="${active_origin_xyz}" active_parent="${active_a_name}_${active_cnt}" active_child="${active_b_name}_${active_cnt}"/>
+
+	<!-- Adds Active Module MOVING PART-->
+	<xacro:active_moving_link_mesh name="${active_b_name}_${active_cnt}" origin_xyz="${active_b_origin_xyz}" origin_rpy="${active_b_origin_rpy}"/>
+
+</xacro:if>	
+<!-- ADD 5TH ROBOT JOINT->4TH DYNAMIXEL JOINT -> END -->
 
 <!-- STARTED 5TH METAMORPHIC LINK -->
+<xacro:property name="meta_cnt" value="5" />
+<xacro:property name="current_metalink" value="metalink_${meta_cnt}" />
+
+<xacro:property name="pseudo1_index" value="9" /> <!-- This is only used to define the default pseudo index: this is the pseudoangle index given in pseudo_origin_rpy for each pseudo -->
+<xacro:property name="pseudo2_index" value="10" />
+
+<xacro:unless value="${ s14 == 9}"> <!--  Case A is this meta link had pseudo in first string parameter => ONLY CASE BECAUSE IN GA THE FIRST PSEUDO MUST ALWAYS EXIST!-->
+				
+		<xacro:property name="metalink_pseudo1" value="${current_metalink}_pseudo1" />
+
+		<xacro:if value="${ s14 == 31 }"> <!-- Case A.1.a -->
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${metalink_pseudo1}_a"  synthetic_origin_rpy="${synthetic3_origin_r} ${synthetic_origin_xzp_8_p} ${synthetic3_origin_ry}" synthetic_origin_xyz="${synthetic_origin_xzp_8_x} ${synthetic3_origin_y} ${synthetic_origin_xzp_8_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${metalink_pseudo1}_a" />	
+
+			<!-- Start building Pseudojoint 2 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${metalink_pseudo1}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo1}_a__${metalink_pseudo1}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo9_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo1}_a" pseudo_child="${metalink_pseudo1}_b" />
+
+			<!-- Start building Pseudojoint 2 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${metalink_pseudo1}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>	
+
+		</xacro:if>
+		
+		<xacro:if value="${ s14 == 21}"> <!-- Case A.1.b -->
+
+			<xacro:synthetic_joint_name  synthetic_name="${active_b_name}_${active_cnt}__${metalink_pseudo1}_a"  synthetic_origin_rpy="${synthetic5_origin_r} ${synthetic_origin_xzp_8_p} ${synthetic5_origin_ry}" synthetic_origin_xyz="${synthetic_origin_xzp_8_x} ${synthetic5_origin_y} ${synthetic_origin_xzp_8_z}" synthetic_parent="${active_b_name}_${active_cnt}" synthetic_child="${metalink_pseudo1}_a" />	
+
+			<!-- Start building Pseudojoint 2 STATIC PART-->
+			<xacro:pseudo_static_link_mesh name="${metalink_pseudo1}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+			<!-- PSEUDO2 CONFIGURATION -->
+			<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo1}_a__${metalink_pseudo1}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo9_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo1}_a" pseudo_child="${metalink_pseudo1}_b" />
+
+			<!-- Start building Pseudojoint 2 MOVING PART-->
+			<xacro:pseudo_moving_link_mesh name="${metalink_pseudo1}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>
+
+		</xacro:if>
+
+		<xacro:unless value="${ s15 == 9}"> <!-- Case A.1.c : and a 2nd pseudo exists-->
+
+			<xacro:property name="metalink_pseudo2" value="${current_metalink}_pseudo2" />
+			
+			<xacro:if value="${ s15 == 21}"> <!-- Case A.1.c.1 -->
+
+				<xacro:synthetic_joint_name  synthetic_name="${metalink_pseudo1}_b__${metalink_pseudo2}_a"  synthetic_origin_rpy="${synthetic4_origin_r} ${synthetic_origin_xzp_9_p} ${synthetic4_origin_ry}" synthetic_origin_xyz="${synthetic_origin_xzp_9_x} ${synthetic4_origin_y} ${synthetic_origin_xzp_9_z}" synthetic_parent="${metalink_pseudo1}_b" synthetic_child="${metalink_pseudo2}_a" />	
+
+				<!-- Start building Pseudojoint 2 STATIC PART-->
+				<xacro:pseudo_static_link_mesh name="${metalink_pseudo2}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+				<!-- PSEUDO2 CONFIGURATION -->
+				<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo2}_a__${metalink_pseudo2}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo10_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo2}_a" pseudo_child="${metalink_pseudo2}_b" />
+
+				<!-- Start building Pseudojoint 2 MOVING PART-->
+				<xacro:pseudo_moving_link_mesh name="${metalink_pseudo2}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>	
+
+				<xacro:property name="last_body_assembled" value="${metalink_pseudo2}_b" />
+
+			</xacro:if>
+
+			<xacro:if value="${ s15 == 31}"> <!-- Case A.1.c.2 -->
+
+				<xacro:synthetic_joint_name  synthetic_name="${metalink_pseudo1}_b__${metalink_pseudo2}_a"  synthetic_origin_rpy="${synthetic2_origin_r} ${synthetic_origin_xzp_9_p} ${synthetic2_origin_ry}" synthetic_origin_xyz="${synthetic_origin_xzp_9_x} ${synthetic2_origin_y} ${synthetic_origin_xzp_9_z}" synthetic_parent="${metalink_pseudo1}_b" synthetic_child="${metalink_pseudo2}_a" />	
+
+				<!-- Start building Pseudojoint 2 STATIC PART-->
+				<xacro:pseudo_static_link_mesh name="${metalink_pseudo2}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
+
+				<!-- PSEUDO2 CONFIGURATION -->
+				<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo2}_a__${metalink_pseudo2}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo10_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo2}_a" pseudo_child="${metalink_pseudo2}_b" />
+
+				<!-- Start building Pseudojoint 2 MOVING PART-->
+				<xacro:pseudo_moving_link_mesh name="${metalink_pseudo2}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>
+
+				<xacro:property name="last_body_assembled" value="${metalink_pseudo2}_b" />
+
+			</xacro:if>
+
+		</xacro:unless>
+
+		<xacro:if value="${ s15 == 9}"> <!-- Case A.1.d : if a 2nd pseudo doesn't exist-->
+
+			<xacro:property name="last_body_assembled" value="${metalink_pseudo1}_b" />
+
+		</xacro:if>
+		
+	</xacro:unless>	<!--  Case A - end-->
 <!-- FINISHED 5TH METAMORPHIC LINK -->
 
 <!-- ADD 6TH ROBOT JOINT->SECOND DYNAMIXEL JOINT -> START -->
+<xacro:if value="${s13 == 0}">
 
+	<xacro:property name="active_cnt" value="5" />
+
+	<!-- MATLAB: Add active DXL: active_assembly_index = 3-->
+	<xacro:assembly_active_module2pseudo  active_assembly_name="${last_body_assembled}__${active_a_name}_${active_cnt}"  active_assembly_origin_rpy="${active2pseudo_origin_r} ${active2pseudo_origin_p_11_3} ${active2pseudo_origin_ry}" active_assembly_origin_xyz="${active2pseudo_origin_xyz}" active_assembly_parent="${last_body_assembled}" active_assembly_child="${active_a_name}_${active_cnt}" />
+
+	<!-- Adds Active Module STATIC PART-->
+	<xacro:active_static_link_mesh name="${active_a_name}_${active_cnt}" origin_xyz="${active_a_origin_xyz}" origin_rpy="${active_a_origin_rpy}"/>
+
+	<!-- Adds DXL Active joint -->
+	<xacro:dxlPROp_joint active_name="${active_a_name}_${active_cnt}__${active_b_name}_${active_cnt}"  active_origin_rpy="${active_origin_rpy}" active_origin_xyz="${active_origin_xyz}" active_parent="${active_a_name}_${active_cnt}" active_child="${active_b_name}_${active_cnt}"/>
+
+	<!-- Adds Active Module MOVING PART-->
+	<xacro:active_moving_link_mesh name="${active_b_name}_${active_cnt}" origin_xyz="${active_b_origin_xyz}" origin_rpy="${active_b_origin_rpy}"/>
+
+</xacro:if>	
 <!-- ADD 6TH ROBOT JOINT->SECOND DYNAMIXEL JOINT -> END -->
 
 <!-- Add TCP as TOOL frame-->
-<!-- Add TCP -->
 <joint name="${active_b_name}_${active_cnt}__TOOL" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.05 0"/>
     <parent link="${active_b_name}_${active_cnt}"/>
@@ -712,5 +913,5 @@
 </joint>
 
 <link name="TOOL"/>
-
+<!-- Add TCP as TOOL frame-->
 </robot>

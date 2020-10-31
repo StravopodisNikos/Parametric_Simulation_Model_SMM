@@ -54,7 +54,7 @@ synthetic_origin_xzp_9_z: 0.0323
 synthetic_origin_xzp_9_p: 0.0262
 #---
 #active2pseudo_origin_p_4_123: -> x(-)
-active2pseudo_origin_p_10_1: 0
+active2pseudo_origin_p_10_1: 0      # dummy value
 active2pseudo_origin_p_10_2: 1.5708
 active2pseudo_origin_p_10_3: 1.5708
 #---
