@@ -627,7 +627,7 @@
 				<xacro:pseudo_static_link_mesh name="${metalink_pseudo2}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
 
 				<!-- PSEUDO2 CONFIGURATION -->
-				<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo2}_a__${metalink_pseudo2}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo5_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo2}_a" pseudo_child="${metalink_pseudo2}_b" />
+				<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo2}_a__${metalink_pseudo2}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo6_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo2}_a" pseudo_child="${metalink_pseudo2}_b" />
 
 				<!-- Start building Pseudojoint 2 MOVING PART-->
 				<xacro:pseudo_moving_link_mesh name="${metalink_pseudo2}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>	
@@ -644,7 +644,7 @@
 				<xacro:pseudo_static_link_mesh name="${metalink_pseudo2}_a" origin_xyz="${pseudo_a_origin_xyz}" origin_rpy="${pseudo_a_origin_rpy}"/>
 
 				<!-- PSEUDO2 CONFIGURATION -->
-				<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo2}_a__${metalink_pseudo2}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo5_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo2}_a" pseudo_child="${metalink_pseudo2}_b" />
+				<xacro:pseudo_joint_name  pseudo_name="${metalink_pseudo2}_a__${metalink_pseudo2}_b"  pseudo_origin_rpy="${pseudo_origin_r+pseudo6_angle} ${pseudo_origin_p} ${pseudo_origin_y}" pseudo_origin_xyz="${pseudo_origin_xyz}" pseudo_parent="${metalink_pseudo2}_a" pseudo_child="${metalink_pseudo2}_b" />
 
 				<!-- Start building Pseudojoint 2 MOVING PART-->
 				<xacro:pseudo_moving_link_mesh name="${metalink_pseudo2}_b" origin_xyz="${pseudo_b_origin_xyz}" origin_rpy="${pseudo_b_origin_rpy}"/>

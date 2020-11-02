@@ -10,54 +10,54 @@
 
 #synthetic_origin_xzp_1_123: 
 synthetic_origin_xzp_1_x: 0
-synthetic_origin_xzp_1_z: 0
-synthetic_origin_xzp_1_p: 0
+synthetic_origin_xzp_1_z: -0.03
+synthetic_origin_xzp_1_p: 1.5708
 #---
 #synthetic_origin_xzp_2_123: -> x(-)
-synthetic_origin_xzp_2_x: -0.0380
-synthetic_origin_xzp_2_z: -0.0244
-synthetic_origin_xzp_2_p: -0.0082
+synthetic_origin_xzp_2_x: -0.035
+synthetic_origin_xzp_2_z: 0
+synthetic_origin_xzp_2_p: 1.5708
 #---
 #synthetic_origin_xzp_3_123: -> x(-)
-synthetic_origin_xzp_3_x: -0.0058
-synthetic_origin_xzp_3_z: 0.0323
-synthetic_origin_xzp_3_p: 0.0262
+synthetic_origin_xzp_3_x: 0
+synthetic_origin_xzp_3_z: 0
+synthetic_origin_xzp_3_p: -1.5708
 #---
 #synthetic_origin_xzp_4_123: -> x(-)
 synthetic_origin_xzp_4_x: -0.0058
-synthetic_origin_xzp_4_z: 0.0323
-synthetic_origin_xzp_4_p: 0.0262
+synthetic_origin_xzp_4_z: 0
+synthetic_origin_xzp_4_p: 0
 #---
 #synthetic_origin_xzp_5_123: -> x(-)
-synthetic_origin_xzp_5_x: -0.0058
-synthetic_origin_xzp_5_z: 0.0323
-synthetic_origin_xzp_5_p: 0.0262
+synthetic_origin_xzp_5_x: 0
+synthetic_origin_xzp_5_z: 0
+synthetic_origin_xzp_5_p: -1.5708
 #---
 #synthetic_origin_xzp_6_123: -> x(-)
-synthetic_origin_xzp_6_x: -0.0058
-synthetic_origin_xzp_6_z: 0.0323
-synthetic_origin_xzp_6_p: 0.0262
+synthetic_origin_xzp_6_x: 0
+synthetic_origin_xzp_6_z: 0.02
+synthetic_origin_xzp_6_p: 0.7854
 #---
 #synthetic_origin_xzp_7_123: -> x(-)
-synthetic_origin_xzp_7_x: -0.0058
-synthetic_origin_xzp_7_z: 0.0323
-synthetic_origin_xzp_7_p: 0.0262
+synthetic_origin_xzp_7_x: 0
+synthetic_origin_xzp_7_z: 0
+synthetic_origin_xzp_7_p: -1.5708
 #---
 #synthetic_origin_xzp_8_123: -> x(-)
-synthetic_origin_xzp_8_x: -0.0058
-synthetic_origin_xzp_8_z: 0.0323
-synthetic_origin_xzp_8_p: 0.0262
+synthetic_origin_xzp_8_x: 0.05
+synthetic_origin_xzp_8_z: 0
+synthetic_origin_xzp_8_p: -1.5708
 #---
 #synthetic_origin_xzp_9_123: -> x(-)
-synthetic_origin_xzp_9_x: -0.0058
-synthetic_origin_xzp_9_z: 0.0323
-synthetic_origin_xzp_9_p: 0.0262
+synthetic_origin_xzp_9_x: 0
+synthetic_origin_xzp_9_z: 0.005
+synthetic_origin_xzp_9_p: -0.7854
 #---
 #active2pseudo_origin_p_4_123: -> x(-)
 active2pseudo_origin_p_10_1: 0      # dummy value
-active2pseudo_origin_p_10_2: 1.5708
-active2pseudo_origin_p_10_3: 1.5708
+active2pseudo_origin_p_10_2: 0
+active2pseudo_origin_p_10_3: 0
 #---
 active2pseudo_origin_p_11_1: 0
-active2pseudo_origin_p_11_2: 1.5708
-active2pseudo_origin_p_11_3: 1.5708
+active2pseudo_origin_p_11_2: 0
+active2pseudo_origin_p_11_3: 0
