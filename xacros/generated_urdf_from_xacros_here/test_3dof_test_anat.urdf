@@ -63,7 +63,7 @@
     </visual>
   </link>
   <joint name="metalink_1_pseudo1_a__metalink_1_pseudo1_b" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="3.1416 0 0" xyz="0 0.025 0.118"/>
     <parent link="metalink_1_pseudo1_a"/>
     <child link="metalink_1_pseudo1_b"/>
   </joint>
@@ -107,7 +107,7 @@
     </visual>
   </link>
   <joint name="metalink_1_pseudo2_a__metalink_1_pseudo2_b" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="0.7854 0 0" xyz="0 0.025 0.118"/>
     <parent link="metalink_1_pseudo2_a"/>
     <child link="metalink_1_pseudo2_b"/>
   </joint>
@@ -198,7 +198,7 @@
     </visual>
   </link>
   <joint name="metalink_2_pseudo1_a__metalink_2_pseudo1_b" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="1.8601 0 0" xyz="0 0.025 0.118"/>
     <parent link="metalink_2_pseudo1_a"/>
     <child link="metalink_2_pseudo1_b"/>
   </joint>
@@ -242,7 +242,7 @@
     </visual>
   </link>
   <joint name="metalink_2_pseudo2_a__metalink_2_pseudo2_b" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="3.1416 0 0" xyz="0 0.025 0.118"/>
     <parent link="metalink_2_pseudo2_a"/>
     <child link="metalink_2_pseudo2_b"/>
   </joint>
