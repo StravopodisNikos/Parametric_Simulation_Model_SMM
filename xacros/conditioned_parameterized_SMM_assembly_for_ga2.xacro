@@ -89,10 +89,17 @@
 <xacro:property name="pseudo4_angle" value="0"/>
 -->
 
+<<<<<<< HEAD
 <xacro:property name="pseudo1_angle" value="0.2618"/>
 <xacro:property name="pseudo2_angle" value="0.2618"/>
 <xacro:property name="pseudo3_angle" value="-0.5236"/>
 <xacro:property name="pseudo4_angle" value="0"/>
+=======
+<xacro:property name="pseudo1_angle" value="-1.3464"/>
+<xacro:property name="pseudo2_angle" value="-0.8976"/>
+<xacro:property name="pseudo3_angle" value="0.4488"/>
+<xacro:property name="pseudo4_angle" value="-1.3464"/>
+>>>>>>> fbe4a2184dda8047b0cf65f0641a40f554687589
 
 
 <!-- ACTIVE2PSEUDOS FIXED TFs -->
