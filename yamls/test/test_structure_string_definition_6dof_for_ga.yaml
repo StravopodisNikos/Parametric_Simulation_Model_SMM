@@ -4,14 +4,14 @@ s2: 21  # default
 s3: 9  
 s4: 0   # default
 s5: 21  # no 9 accepted
-s6: 31  
+s6: 9  
 s7: 0   # default
 s8: 31  # no 9 accepted
-s9: 21  
+s9: 31  
 s10: 0  # default
 s11: 21 # no 9 accepted
 s12: 31
 s13: 0  # default
 s14: 21 # no 9 accepted
-s15: 21
+s15: 31
 s16: 0  # default

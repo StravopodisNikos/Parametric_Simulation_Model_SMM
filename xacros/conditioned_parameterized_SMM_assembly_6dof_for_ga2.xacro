@@ -77,15 +77,15 @@
 <xacro:property name="pseudo_cnt" value="0" />
 <xacro:property name="last_pseudo_cnt" value="0" />
 <!--
-<xacro:property name="pseudo1_angle" value="1.5708"/>
-<xacro:property name="pseudo2_angle" value="0.5"/>
-<xacro:property name="pseudo3_angle" value="0"/>
-<xacro:property name="pseudo4_angle" value="0.7854"/>
+<xacro:property name="pseudo1_angle" value="-1.5708"/>
+<xacro:property name="pseudo2_angle" value="-0.5"/>
+<xacro:property name="pseudo3_angle" value="0.7854"/>
+<xacro:property name="pseudo4_angle" value="-1"/>
 <xacro:property name="pseudo5_angle" value="-0.7854"/>
-<xacro:property name="pseudo6_angle" value="0"/>
-<xacro:property name="pseudo7_angle" value="0"/>
+<xacro:property name="pseudo6_angle" value="1.15"/>
+<xacro:property name="pseudo7_angle" value="0.85"/>
 <xacro:property name="pseudo8_angle" value="1.5708"/>
-<xacro:property name="pseudo9_angle" value="0"/>
+<xacro:property name="pseudo9_angle" value="-0.45"/>
 <xacro:property name="pseudo10_angle" value="-1.5708"/>
 -->
 
