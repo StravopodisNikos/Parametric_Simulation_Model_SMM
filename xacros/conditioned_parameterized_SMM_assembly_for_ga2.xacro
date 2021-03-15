@@ -89,6 +89,7 @@
 <xacro:property name="pseudo4_angle" value="0"/>
 -->
 
+<!-- These should be passed to a yaml file -->
 <xacro:property name="pseudo1_angle" value="-1.3464"/>
 <xacro:property name="pseudo2_angle" value="-0.8976"/>
 <xacro:property name="pseudo3_angle" value="0.4488"/>
@@ -96,7 +97,7 @@
 
 
 <!-- ACTIVE2PSEUDOS FIXED TFs -->
-<xacro:property name="active2pseudo" value="${load_yaml(definitions_file)}"/>
+<xacro:property name="active2pseudo" value="${load_yaml(definitions_file)}"/> 
 <xacro:property name="active2pseudo_name" value="${active2pseudo['active2pseudo_name']}" />
 <xacro:property name="active2pseudo_origin_xyz" value="${active2pseudo['active2pseudo_origin_xyz']}" />
 <!--xacro:property name="active2pseudo_origin_rpy" value="${active2pseudo['active2pseudo_origin_rpy']}" /-->
