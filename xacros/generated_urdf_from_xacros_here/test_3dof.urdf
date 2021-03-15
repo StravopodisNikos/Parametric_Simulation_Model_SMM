@@ -63,7 +63,7 @@
     </visual>
   </link>
   <joint name="metalink_1_pseudo1_a__metalink_1_pseudo1_b" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="3.1416 0 0" xyz="0 0.025 0.118"/>
     <parent link="metalink_1_pseudo1_a"/>
     <child link="metalink_1_pseudo1_b"/>
   </joint>
@@ -86,7 +86,7 @@
   <!-- Case A.1.c : and a 2nd pseudo exists-->
   <!-- Case A.1.c.2 -->
   <joint name="metalink_1_pseudo1_b__metalink_1_pseudo2_a" type="fixed">
-    <origin rpy="0 0.7854 0" xyz="0 0.1444 0.03"/>
+    <origin rpy="0 0.78 0" xyz="-0.005 0.1444 0.005"/>
     <parent link="metalink_1_pseudo1_b"/>
     <child link="metalink_1_pseudo2_a"/>
   </joint>
@@ -107,7 +107,7 @@
     </visual>
   </link>
   <joint name="metalink_1_pseudo2_a__metalink_1_pseudo2_b" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="0.7854 0 0" xyz="0 0.025 0.118"/>
     <parent link="metalink_1_pseudo2_a"/>
     <child link="metalink_1_pseudo2_b"/>
   </joint>
@@ -175,9 +175,9 @@
     </visual>
   </link>
   <!--  Case A is this meta link had pseudo in first string parameter => ONLY CASE BECAUSE IN GA THE FIRST PSEUDO MUST ALWAYS EXIST!-->
-  <!-- Case A.1.a -->
+  <!-- Case A.1.b -->
   <joint name="active_module_b_1__metalink_2_pseudo1_a" type="fixed">
-    <origin rpy="0 -1.5708 0" xyz="0.001 0.0955 -0.025"/>
+    <origin rpy="-1.5708 -1.5708 0" xyz="0.001 0.0525 -0.055"/>
     <parent link="active_module_b_1"/>
     <child link="metalink_2_pseudo1_a"/>
   </joint>
@@ -198,7 +198,7 @@
     </visual>
   </link>
   <joint name="metalink_2_pseudo1_a__metalink_2_pseudo1_b" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="3.1416 0 0" xyz="0 0.025 0.118"/>
     <parent link="metalink_2_pseudo1_a"/>
     <child link="metalink_2_pseudo1_b"/>
   </joint>
@@ -219,9 +219,9 @@
     </visual>
   </link>
   <!-- Case A.1.c : and a 2nd pseudo exists-->
-  <!-- Case A.1.c.1 -->
+  <!-- Case A.1.c.2 -->
   <joint name="metalink_2_pseudo1_b__metalink_2_pseudo2_a" type="fixed">
-    <origin rpy="-1.5708 -1.5708 0" xyz="0.005 0.101 -0.003"/>
+    <origin rpy="0 1.5708 0" xyz="0.003 0.1444 -0.001"/>
     <parent link="metalink_2_pseudo1_b"/>
     <child link="metalink_2_pseudo2_a"/>
   </joint>
@@ -242,7 +242,7 @@
     </visual>
   </link>
   <joint name="metalink_2_pseudo2_a__metalink_2_pseudo2_b" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0 0.025 0.118"/>
+    <origin rpy="2.3562 0 0" xyz="0 0.025 0.118"/>
     <parent link="metalink_2_pseudo2_a"/>
     <child link="metalink_2_pseudo2_b"/>
   </joint>
@@ -265,7 +265,7 @@
   <!--  Case A - end-->
   <!-- FINISHED SECOND METAMORPHIC LINK -->
   <joint name="metalink_2_pseudo2_b__active_module_a_2" type="fixed">
-    <origin rpy="0 1.5708 0" xyz="0 0.1 0"/>
+    <origin rpy="0 0 0" xyz="0 0.1 0"/>
     <parent link="metalink_2_pseudo2_b"/>
     <child link="active_module_a_2"/>
   </joint>

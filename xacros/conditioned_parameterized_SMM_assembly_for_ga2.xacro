@@ -80,10 +80,20 @@
 <xacro:property name="pseudo_cnt" value="0" />
 <xacro:property name="last_pseudo_cnt" value="0" />
 
+<!--MATLAB pseudoangle calculation: deg2rad(15) * (floor(ci)-1) + (-1.5708)-->
+
+<!--
 <xacro:property name="pseudo1_angle" value="0"/>
 <xacro:property name="pseudo2_angle" value="0"/>
 <xacro:property name="pseudo3_angle" value="0"/>
 <xacro:property name="pseudo4_angle" value="0"/>
+-->
+
+<xacro:property name="pseudo1_angle" value="-1.3464"/>
+<xacro:property name="pseudo2_angle" value="-0.8976"/>
+<xacro:property name="pseudo3_angle" value="0.4488"/>
+<xacro:property name="pseudo4_angle" value="-1.3464"/>
+
 
 <!-- ACTIVE2PSEUDOS FIXED TFs -->
 <xacro:property name="active2pseudo" value="${load_yaml(definitions_file)}"/>
