@@ -1,0 +1,7 @@
+# works with conditioned_parameterized_SMM_assembly_for_ga2.xacro
+
+# structure string definition
+pseudo1_angle: -0.8976   
+pseudo2_angle: -0.4488
+pseudo3_angle:  1.3464
+pseudo4_angle:  0.4488
